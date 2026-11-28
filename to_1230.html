@@ -77,19 +77,19 @@
 
   /* 三つの問い・心配三つ */
   ul.three{list-style:none;margin:12px 0 16px;display:grid;gap:8px}
-  ul.three li{padding:11px 14px 11px 46px;position:relative;background:#fff;border:1px solid var(--cream-dark);border-radius:4px;line-height:1.75}
+  ul.three li{padding:11px 14px 11px 46px;position:relative;background:var(--paper-warm);border:1px solid var(--cream-dark);border-radius:4px;line-height:1.75}
   ul.three li::before{content:attr(data-n);position:absolute;left:12px;top:12px;width:24px;height:24px;border-radius:50%;background:var(--gold);font-family:var(--display);font-weight:700;font-size:14px;color:var(--cosmos-deep);line-height:24px;text-align:center}
 
   /* 図: 氷山（画像＋HTMLラベル。ラベルは画像上の%位置に置くので、幅が変わっても崩れない） */
-  .berg{margin:18px 0 6px;border:1px solid var(--cream-dark);border-radius:10px;overflow:hidden;background:#fff}
-  .berg .head{text-align:center;font-size:13px;letter-spacing:.14em;color:var(--gold-deep);padding:12px 12px 8px}
+  .berg{margin:18px 0 6px;border:1px solid var(--cream-dark);border-radius:10px;overflow:hidden;background:var(--paper-warm)}
+  .berg .head{text-align:center;font-size:13px;letter-spacing:.14em;color:var(--gold-ink);padding:12px 12px 8px}
   .berg .pic{position:relative;line-height:0}
   .berg .pic img{display:block;width:100%;height:auto}
   .berg .lbl{position:absolute;transform:translate(-50%,-50%);width:max-content;max-width:76%;background:rgba(255,255,255,.93);border:1.5px solid var(--gold);border-radius:8px;padding:8px 14px 8px 40px;font-size:15px;font-weight:700;line-height:1.45;color:var(--ink);text-align:center;box-shadow:0 4px 14px rgba(8,18,48,.18)}
   .berg .lbl small{display:block;font-weight:400;font-size:12px;color:var(--ink-muted);margin-top:1px}
   .berg .lbl .no{position:absolute;left:8px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:50%;background:var(--gold);color:var(--cosmos-deep);font-family:var(--display);font-weight:700;font-size:14px;line-height:24px;text-align:center}
   .berg .lbl.deep{background:rgba(255,255,255,.96)} .berg .lbl.deep .no{background:var(--gold-bright);box-shadow:0 0 0 4px rgba(210,168,67,.4)}
-  .berg .wl{position:absolute;right:3%;transform:translateY(-50%);background:rgba(8,18,48,.82);color:#fff;font-size:11.5px;letter-spacing:.06em;padding:4px 10px;border-radius:999px;line-height:1.4;white-space:nowrap}
+  .berg .wl{position:absolute;right:3%;transform:translateY(-50%);background:rgba(8,18,48,.82);color:#fff;font-size:11.5px;letter-spacing:.06em;padding:4px 10px;border-radius:2px;line-height:1.4;white-space:nowrap}
   .berg .order{display:flex;gap:10px;align-items:flex-start;padding:14px 16px 6px;font-size:14.5px;line-height:1.7;color:var(--ink-soft)}
   .berg .order .arrow{font-size:24px;line-height:1;color:var(--gold-deep);flex:none;padding-top:2px}
   .berg .order b{color:var(--gold-ink)}
@@ -98,7 +98,7 @@
 
   /* 届くもの */
   .deliver{display:grid;gap:8px;margin:14px 0 4px}
-  .deliver .item{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:center;padding:12px 14px;border-left:3px solid var(--gold);background:#fff;border-radius:0 4px 4px 0}
+  .deliver .item{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:center;padding:12px 14px;border-left:1px solid var(--gold);background:var(--paper-warm);border-radius:0 4px 4px 0}
   .deliver .item svg{width:44px;height:44px}
   .deliver h3{font-size:17px;font-weight:700;color:var(--ink);line-height:1.5;margin:0}
   .deliver p{font-size:14.5px;color:var(--ink-muted);line-height:1.7;margin:2px 0 0}
@@ -109,7 +109,7 @@
   .line .top .back{width:10px;height:10px;border-left:2px solid #333;border-bottom:2px solid #333;transform:rotate(45deg);margin:0 4px 0 2px}
   .line .top .name{flex:1} .line .top .ic{width:20px;height:20px;border:2px solid #444;border-radius:5px;opacity:.7} .line .top .ic.ph{border-radius:50%}
   .line .body{padding:12px 12px 16px;display:grid;gap:10px}
-  .line .date{justify-self:center;background:rgba(0,0,0,.28);color:#fff;font-size:11px;padding:3px 12px;border-radius:999px;text-align:center}
+  .line .date{justify-self:center;background:rgba(0,0,0,.28);color:#fff;font-size:11px;padding:3px 12px;border-radius:2px;text-align:center}
   .line .msg{display:grid;grid-template-columns:36px 1fr;gap:8px;align-items:flex-end}
   .line .av{width:36px;height:36px;border-radius:50%;align-self:flex-start;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);flex:none;background:#fff url("data:image/jpeg;base64,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") center/cover no-repeat}
   .line .col{display:grid;gap:4px;min-width:0} .line .who{font-size:12px;color:#1c2a44;padding-left:2px}
@@ -133,15 +133,15 @@
 
   /* 声 */
   .voice{display:grid;gap:8px;margin:12px 0 6px}
-  .voice blockquote{background:#fff;border:1px solid var(--cream-dark);border-left:3px solid var(--gold);color:var(--ink-soft);padding:12px 14px;border-radius:4px;font-size:15.5px;line-height:1.8}
+  .voice blockquote{background:var(--paper-warm);border:1px solid var(--cream-dark);border-left:1px solid var(--gold);color:var(--ink-soft);padding:12px 14px;border-radius:4px;font-size:15.5px;line-height:1.8}
 
   /* 手順 */
   ol.steps{list-style:none;counter-reset:s;display:grid;gap:8px;margin:12px 0 10px}
-  ol.steps li{counter-increment:s;padding:10px 12px 10px 50px;position:relative;background:#fff;border:1px solid var(--cream-dark);border-radius:4px;line-height:1.7;font-size:16px}
+  ol.steps li{counter-increment:s;padding:10px 12px 10px 50px;position:relative;background:var(--paper-warm);border:1px solid var(--cream-dark);border-radius:4px;line-height:1.7;font-size:16px}
   ol.steps li::before{content:counter(s);position:absolute;left:12px;top:9px;width:26px;height:26px;border-radius:50%;background:var(--gold);color:var(--cosmos-deep);font-family:var(--display);font-weight:700;font-size:15px;line-height:26px;text-align:center}
-  h3.sub{font-size:17px;font-weight:700;letter-spacing:.04em;color:var(--ink);margin:22px 0 10px;padding-left:12px;border-left:3px solid var(--gold)}
+  h3.sub{font-size:17px;font-weight:700;letter-spacing:.04em;color:var(--ink);margin:22px 0 10px;padding-left:12px;border-left:1px solid var(--gold)}
   ol.qs{list-style:none;counter-reset:q;display:grid;gap:6px;margin:0 0 12px}
-  ol.qs li{counter-increment:q;padding:9px 12px 9px 46px;position:relative;background:#fff;border:1px solid var(--cream-dark);border-radius:4px;line-height:1.7;font-size:15.5px}
+  ol.qs li{counter-increment:q;padding:9px 12px 9px 46px;position:relative;background:var(--paper-warm);border:1px solid var(--cream-dark);border-radius:4px;line-height:1.7;font-size:15.5px}
   ol.qs li::before{content:counter(q);position:absolute;left:12px;top:9px;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold-ink);font-family:var(--display);font-weight:700;font-size:14px;line-height:22px;text-align:center}
 
   .sign{margin-top:20px;color:var(--ink-soft);font-size:15px;letter-spacing:.1em}
@@ -181,35 +181,22 @@
   .vsl-poster:hover .vsl-play,.vsl-poster:focus-visible .vsl-play{transform:scale(1.08)}
   .after-offer{margin-top:22px}
 </style>
-<style>.november-visual{max-width:460px;margin:22px auto;border:1px solid var(--gold);border-radius:12px;overflow:hidden}.november-visual img{display:block;width:100%;height:auto}.november-n1{padding:24px 20px;margin:20px 0;background:var(--cream);border-left:3px solid var(--gold)}h1 .campaign-title{font-size:.72em;color:var(--gold-bright);margin-top:18px}h1 .campaign-sub{font-size:.62em;letter-spacing:.08em}.btn{min-height:60px}footer a{color:var(--ink-soft)}@media(max-width:600px){h1{font-size:27px!important;line-height:1.7!important}.campaign-title{font-size:22px!important}.november-visual{max-width:100%}}:root{--cosmos:#101a32;--paper:#f7f4eb;--gold:#c7ab64;--aqua:#91a8bf}</style><style id="november-season-style">
-/* November: reference autumn LP's maple drift, scoped to new November pages. */
-:root{--nov-leaf:#ceaa62;--nov-light:#ede2bc;--nov-paper:#f6f3eb;--nov-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%201.5l1.7%203.6%202.3-1.1-.3%204.2%203.4-2.2-1%203.2%203.4-.3-2.4%203%201.8%201.5-4.2%201.2.4%202-4.2-.7.2%205.2h-2.6l.2-5.2-4.2.7.4-2-4.2-1.2%201.8-1.5-2.4-3%203.4.3-1-3.2%203.4%202.2-.3-4.2%202.3%201.1z%22%2F%3E%3C%2Fsvg%3E")}
-.november-leaves{position:fixed;inset:0;overflow:hidden;z-index:20;pointer-events:none;contain:strict}
-.november-leaves i{position:absolute;top:-8vh;left:var(--x);width:var(--size);height:var(--size);animation:nov-leaf-fall var(--duration) linear var(--delay) infinite;opacity:0;pointer-events:none}
-.november-leaves i::before{content:"";position:absolute;inset:0;background:var(--nov-leaf);-webkit-mask:var(--nov-mask) center/contain no-repeat;mask:var(--nov-mask) center/contain no-repeat;animation:nov-leaf-turn 9s linear infinite}
-.november-leaves i:nth-child(even)::before{background:var(--nov-light);animation-duration:12s;animation-direction:reverse}
-@keyframes nov-leaf-fall{0%{transform:translate3d(0,-10vh,0);opacity:0}8%{opacity:.52}30%{transform:translate3d(18px,26vh,0)}60%{transform:translate3d(-15px,62vh,0)}90%{opacity:.4}100%{transform:translate3d(14px,116vh,0);opacity:0}}
-@keyframes nov-leaf-turn{0%{transform:rotate(-25deg) rotateY(0)}50%{transform:rotate(155deg) rotateY(140deg)}100%{transform:rotate(335deg) rotateY(360deg)}}
-.nov-season-frieze{height:26px;display:flex;justify-content:center;align-items:center;gap:14px;margin:0 auto 22px;color:var(--nov-leaf);pointer-events:none}
-.nov-season-frieze::before,.nov-season-frieze::after{content:"";height:1px;width:68px;background:linear-gradient(90deg,transparent,currentColor);opacity:.45}
-.nov-season-frieze::after{transform:rotate(180deg)}
-.nov-season-frieze i{display:block;width:22px;height:22px;background:currentColor;-webkit-mask:var(--nov-mask) center/contain no-repeat;mask:var(--nov-mask) center/contain no-repeat;transform:rotate(-20deg)}
-.november-note{background:radial-gradient(ellipse at 85% 0%,color-mix(in srgb,var(--nov-leaf) 12%,transparent),transparent 65%);border-top:1px solid color-mix(in srgb,var(--nov-leaf) 24%,transparent);border-bottom:1px solid color-mix(in srgb,var(--nov-leaf) 18%,transparent)}
-.hero-copy{background-image:radial-gradient(ellipse at 100% 100%,color-mix(in srgb,var(--nov-leaf) 9%,transparent),transparent 65%)}
-.chapno::before,.chapno::after{content:"";display:inline-block;width:11px;height:11px;vertical-align:middle;background:var(--nov-leaf);-webkit-mask:var(--nov-mask) center/contain no-repeat;mask:var(--nov-mask) center/contain no-repeat;opacity:.8;margin:0 12px;transform:rotate(-25deg)}
-.chapno::after{transform:rotate(25deg)}
-.band{background-image:radial-gradient(ellipse at 8% 30%,color-mix(in srgb,var(--nov-leaf) 18%,transparent),transparent 58%)}
-@media(max-width:600px){.november-leaves i:nth-child(n+9){display:none}.november-leaves i{width:calc(var(--size)*.85);height:calc(var(--size)*.85)}}
-@media(prefers-reduced-motion:reduce){.november-leaves{display:none}.november-leaves i,.november-leaves i::before{animation:none}}
-@media print{.november-leaves{display:none}}
-.nov-season-frieze i{border-radius:50%;-webkit-mask:none;mask:none;background:radial-gradient(circle at 35% 32%,#fffdf5 0%,var(--nov-light) 65%,var(--nov-leaf) 100%);box-shadow:0 0 18px color-mix(in srgb,var(--nov-light) 45%,transparent);transform:none}.nov-season-frieze{color:var(--nov-leaf)}.offer .price{flex-direction:column;align-items:center;gap:6px}.offer .was{display:block;font-size:13px;letter-spacing:.06em}.offer .save{display:block;font-size:13px;color:var(--gold-bright);letter-spacing:.06em}</style><link href="https://satoshiu1818-rgb.github.io/kaiun-202612-lp/to_1230.html" rel="canonical"/><meta content="2027年 金運運勢鑑定 本格特別鑑定｜とー" property="og:title"/><meta content="https://eiichispiritual-ops.github.io/to-kantei/20261124/" property="og:url"/></head>
-<body><div aria-hidden="true" class="november-leaves"><i style="--x:3%;--size:17px;--duration:21s;--delay:-3.0s"></i><i style="--x:94%;--size:20px;--duration:23s;--delay:-5.3s"></i><i style="--x:12%;--size:23px;--duration:25s;--delay:-7.6s"></i><i style="--x:85%;--size:26px;--duration:27s;--delay:-9.9s"></i><i style="--x:22%;--size:17px;--duration:29s;--delay:-12.2s"></i><i style="--x:74%;--size:20px;--duration:21s;--delay:-14.5s"></i><i style="--x:38%;--size:23px;--duration:23s;--delay:-16.8s"></i><i style="--x:61%;--size:26px;--duration:25s;--delay:-19.1s"></i><i style="--x:8%;--size:17px;--duration:27s;--delay:-21.4s"></i><i style="--x:90%;--size:20px;--duration:29s;--delay:-23.7s"></i><i style="--x:29%;--size:23px;--duration:21s;--delay:-26.0s"></i><i style="--x:70%;--size:26px;--duration:23s;--delay:-28.3s"></i></div>
-<div class="band"><div class="wrap"><div aria-hidden="true" class="nov-season-frieze"><i></i></div>
+<style>.dec-visual{max-width:460px;margin:22px auto;border:1px solid var(--gold);border-radius:12px;overflow:hidden}.dec-visual img{display:block;width:100%;height:auto}.dec-n1{padding:24px 20px;margin:20px 0;background:var(--cream);border-left:1px solid var(--gold)}h1 .campaign-title{font-size:.72em;color:var(--gold-bright);margin-top:18px}h1 .campaign-sub{font-size:.62em;letter-spacing:.08em}.btn{min-height:60px}footer a{color:var(--ink-soft)}@media(max-width:600px){h1{font-size:27px!important;line-height:1.7!important}.campaign-title{font-size:22px!important}.dec-visual{max-width:100%}}:root{--cosmos:#101a32;--paper:#f7f4eb;--gold:#c7ab64;--aqua:#91a8bf}</style><link href="assets/dec-season.css" rel="stylesheet"/>
+<style>
+:root{--deep:var(--cosmos);--deep-d:var(--cosmos-deep);--deep-ink:rgba(243,240,230,.94);--gold-on-dark:var(--gold-bright)}
+.band{background-image:radial-gradient(ellipse at 8% 30%,color-mix(in srgb,var(--gold) 14%,transparent),transparent 58%)}
+.offer .price{flex-direction:column;align-items:center;gap:6px}.offer .was{display:block;font-size:13px;letter-spacing:.06em}.offer .save{display:block;font-size:13px;color:var(--gold-bright);letter-spacing:.06em}
+.btn{border-radius:2px;background:linear-gradient(135deg,var(--gold-deep),var(--gold) 45%,var(--gold-bright) 52%,var(--gold) 60%,var(--gold-deep));background-size:200% 100%;min-height:60px;box-shadow:0 12px 32px rgba(210,168,67,.42),0 2px 0 rgba(255,255,255,.5) inset,0 -3px 0 rgba(122,95,18,.35) inset,0 0 0 1px rgba(122,95,18,.6);animation:to-btnshine 3.6s ease-in-out infinite alternate}
+@keyframes to-btnshine{from{background-position:0 0}to{background-position:100% 0}}
+@media(prefers-reduced-motion:reduce){.btn{animation:none}}
+</style><link href="https://satoshiu1818-rgb.github.io/kaiun-202612-lp/to_1230.html" rel="canonical"/><meta content="2027年 金運運勢鑑定 本格特別鑑定｜とー" property="og:title"/><meta content="https://satoshiu1818-rgb.github.io/kaiun-202612-lp/to_1230.html" property="og:url"/><meta content="https://satoshiu1818-rgb.github.io/kaiun-202612-lp/img/product/to_1230.jpg" property="og:image"/><meta content="1254" property="og:image:width"/><meta content="1254" property="og:image:height"/><meta content="2027年 金運運勢鑑定 本格特別鑑定" property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/></head>
+<body><div aria-hidden="true" class="dec-snow"><i style="--x:3%;--size:3px;--duration:16s;--delay:-2s"></i><i style="--x:94%;--size:6px;--duration:19s;--delay:-5s"></i><i style="--x:12%;--size:9px;--duration:14s;--delay:-8s"></i><i style="--x:85%;--size:4px;--duration:21s;--delay:-3s"></i><i style="--x:22%;--size:7px;--duration:17s;--delay:-11s"></i><i style="--x:74%;--size:10px;--duration:15s;--delay:-6s"></i><i style="--x:38%;--size:3px;--duration:22s;--delay:-9s"></i><i style="--x:61%;--size:6px;--duration:18s;--delay:-13s"></i><i style="--x:8%;--size:8px;--duration:16s;--delay:-4s"></i><i style="--x:90%;--size:4px;--duration:20s;--delay:-15s"></i><i style="--x:29%;--size:6px;--duration:17s;--delay:-7s"></i><i style="--x:70%;--size:11px;--duration:14s;--delay:-10s"></i></div>
+<div class="band"><div class="wrap"><div aria-hidden="true" class="dec-frieze"><i></i></div>
 <div class="brand"><span class="dot"></span>引き寄せ科学者 とー</div>
 <div class="eyebrow">2027年 金運運勢鑑定の無料鑑定を受け取ったあなたへ</div>
 <h1><span class="l">年末もまた、<br/>お金の不安で<br/>終わらせたくない。</span><span class="l campaign-title">2027年 金運運勢鑑定</span><span class="l campaign-sub">本格特別鑑定</span></h1>
 <p class="vsl-lead">2026年12月｜2027年の「これから」を見る金運波動本鑑定</p>
-<div class="november-visual"><img alt="2027年 金運運勢鑑定 本格特別鑑定 9,980円（税込）" fetchpriority="high" height="1024" src="img/product/to_1230.jpg" width="1024"/></div>
+<div class="dec-visual"><img alt="2027年 金運運勢鑑定 本格特別鑑定 9,980円（税込）" fetchpriority="high" height="1024" src="img/product/to_1230.jpg" width="1024"/></div>
 <div class="offer compact"><div class="lab">2026年12月の本格特別鑑定　特別料金</div><div class="price"><span class="was">通常価格 19,900円</span><span><span class="now">9,980</span><span class="yen">円</span> <span class="unit">（税込）</span></span><span class="save">9,920円お得</span></div><a class="btn js-buy" href="https://pmsdqb4c2p0emj0yagvc.stores.jp/items/6b08c4955ca4343b7c5f540d" rel="noopener" target="_blank">本鑑定を申し込む<small>特別料金 9,980円（税込）・お申し込みは1分</small></a><p class="after-btn">購入後、決済時のお名前・購入商品名・購入完了画面を、僕の公式LINEに送ってください。</p></div>
 <div class="after-offer">
 <p>診断で分かったのは、あなたの<strong><span class="nw">「今」</span></strong>。<br/>本鑑定で書くのは、<span class="nw">その先です。</span></p>
@@ -222,7 +209,7 @@
 </div></div>
 <div class="wrap">
 <section>
-<h2><span class="nw">2027年の金運、</span><span class="nw">守るものと選ぶ道</span></h2><p class="seasonal-context">年越しを前に、2027年の金運の流れを見つめる節目。</p><div class="november-n1"><p>年末の予定が埋まるたび、楽しみより先に支払いが浮かぶ。人に合わせた出費も、断れなかった頼まれごとも、そのままにしてきた。</p><p>何を手放し、どの流れを選べば、同じお金の悩みに戻らずに進めるのか。</p><p>「あとで考えよう」が重なると、守りたかった自分の安心まで後回しになることがあります。2027年へ向けて、今の流れと選べる道を整理しましょう。</p><p>年越しは、ここまで抱えてきたものを見つめ直す節目として。受け取る流れと手放す流れを、あなたの言葉から整理します。</p></div>
+<h2><span class="nw">2027年の金運、</span><span class="nw">守るものと選ぶ道</span></h2><p class="seasonal-context">年越しを前に、2027年の金運の流れを見つめる節目。</p><div class="dec-n1"><p>年末の予定が埋まるたび、楽しみより先に支払いが浮かぶ。人に合わせた出費も、断れなかった頼まれごとも、そのままにしてきた。</p><p>何を手放し、どの流れを選べば、同じお金の悩みに戻らずに進めるのか。</p><p>「あとで考えよう」が重なると、守りたかった自分の安心まで後回しになることがあります。2027年へ向けて、今の流れと選べる道を整理しましょう。</p><p>年越しは、ここまで抱えてきたものを見つめ直す節目として。受け取る流れと手放す流れを、あなたの言葉から整理します。</p></div>
 <p>無料鑑定では、今のお金の悩みと、<strong>先に整える一歩</strong>をお伝えしました。<br/>今回は2027年に向けて、守りたいもの・見直したい受け取り方・今の道と別の道を、現在のご相談から整理します。前回の鑑定結果との比較を前提にせず、今回の言葉から読み解きます。</p>
 <p>この鑑定では、お金への思い込みや繰り返す行動を<strong>「ブロック」</strong>として見つめます。<br/>表に見える悩みだけでなく、その背景を順に整理する、という見方です。<br/>重なり方や整える順番は、一人ひとりの言葉から読み解きます。</p>
 <div aria-label="氷山の図。&lt;br&gt;見えている悩みは水面の上の一部で、奥のブロックは水面の下にある。&lt;br&gt;ほどけるのは下から上の順" class="berg">
@@ -249,9 +236,9 @@
 <h2>本鑑定で届くもの</h2>
 <p>僕から五つ質問して、その答えから鑑定書を一通書きます。</p>
 <div class="deliver">
-<div class="item"><svg viewbox="0 0 44 44"><rect fill="#4fb8c2" fill-opacity=".55" height="8" rx="2" width="32" x="6" y="28"></rect><rect fill="#d2a843" fill-opacity=".7" height="8" rx="2" width="22" x="11" y="18"></rect><rect fill="#9c7a1c" height="8" rx="2" width="12" x="16" y="8"></rect></svg><div><h3>月ごとの流れ</h3><p>お金が残らない不安の奥にある、ブロックの重なりとほどけていく順番</p></div></div>
+<div class="item"><svg viewbox="0 0 44 44"><rect fill="#4fb8c2" fill-opacity=".55" height="8" rx="2" width="32" x="6" y="28"></rect><rect fill="#d2a843" fill-opacity=".7" height="8" rx="2" width="22" x="11" y="18"></rect><rect fill="#9c7a1c" height="8" rx="2" width="12" x="16" y="8"></rect></svg><div><h3>ほどけていく、順番</h3><p>お金が残らない不安の奥にある、ブロックの重なりとほどけていく順番</p></div></div>
 <div class="item"><svg viewbox="0 0 44 44"><circle cx="22" cy="22" fill="none" r="15" stroke="#9c7a1c" stroke-width="2"></circle><line stroke="#9c7a1c" stroke-linecap="round" stroke-width="2.5" x1="22" x2="22" y1="22" y2="12"></line><line stroke="#9c7a1c" stroke-linecap="round" stroke-width="2.5" x1="22" x2="29" y1="22" y2="26"></line><circle cx="36" cy="9" fill="#4fb8c2" r="4"></circle></svg><div><h3>止まる月と、動く月</h3><p>2027年の月ごとの金運の流れと、動き出す時期の目安。その前に日常で確かめられる合図</p></div></div>
-<div class="item"><svg viewbox="0 0 44 44"><path d="M6 30 Q22 14 38 30" fill="none" stroke="#1f6f7a" stroke-linecap="round" stroke-width="2.5"></path><path d="M6 36 Q22 20 38 36" fill="none" stroke="#d2a843" stroke-linecap="round" stroke-width="2.5"></path><circle cx="22" cy="12" fill="#9c7a1c" r="5"></circle></svg><div><h3>入口と、時期の目安</h3><p>仕事や人との縁など、あなたが受け取りやすいお金の入口</p></div></div>
+<div class="item"><svg viewbox="0 0 44 44"><path d="M6 30 Q22 14 38 30" fill="none" stroke="#1f6f7a" stroke-linecap="round" stroke-width="2.5"></path><path d="M6 36 Q22 20 38 36" fill="none" stroke="#d2a843" stroke-linecap="round" stroke-width="2.5"></path><circle cx="22" cy="12" fill="#9c7a1c" r="5"></circle></svg><div><h3>お金が入ってくる、入口</h3><p>仕事や人との縁など、あなたが受け取りやすいお金の入口</p></div></div>
 </div>
 <p class="note">鑑定書は<span class="nw">LINE</span>で<span class="nw">1通</span>、およそ<span class="nw">4,000〜4,500字</span>。<br/>最後に、<b>合図が来た時に口にする、あなたに合った一言</b>を添えます。</p>
 <div aria-label="鑑定書がLINEで届くイメージ" class="line">
@@ -284,12 +271,12 @@
 </section>
 <section>
 <h2><span class="nw">受けた人の声と、</span><span class="nw">心配な人へ</span></h2>
-<div class="voice">
+<p class="note" style="margin-bottom:18px">実際に本鑑定を受けた方の声です。</p> <div class="voice">
 <blockquote>何をすればいいかが、自然と一つになった。</blockquote>
 <blockquote>思いがけないところから、お金が向こうから入ってくることがあるのだと、体感できた。</blockquote>
 <blockquote>一回読んだだけで、翌日にはお金のブロックが外れ始めた感覚があった。</blockquote>
 </div><p class="note">掲載の声はこれまでの本鑑定への感想です。今回の12月企画の成果を示すものではありません。</p>
-<p class="note" style="margin-bottom:18px">実際に本鑑定を受けた方の声です。</p>
+
 <ul class="three">
 <li data-n="1"><span class="nw">「あれをしなさい、これを頑張りなさい」</span>は書きません。<br/>あなたを責めたり、無理な努力を求めたりするための鑑定ではありません。</li>
 <li data-n="2">色々試しても変わらなかったと感じる方も、現実の条件と気持ちを分けて、次に確かめることを整理できます。<br/>これまでのやり方を一律に否定するものではありません。</li>

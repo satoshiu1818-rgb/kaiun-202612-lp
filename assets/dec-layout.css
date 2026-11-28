@@ -1,0 +1,156 @@
+/* 12月LP レイアウト層。design_standard.md §3-1 / §3-5 / §3-6 / §3-9 / §5-1 */
+
+/* アカウント依存値は --acct-* をテーマ側 :root で定義して差し替える。未定義ならみや（紫×金）の値。 */
+:root{
+--gold-text:var(--acct-gold-text,#765227);
+--red-band:var(--acct-red-band,#B5432E);
+--red-band-hi:var(--acct-red-band-hi,#C24E38);
+--red-text:var(--acct-red-text,#A8323F);
+--gold-rule:color-mix(in srgb,var(--gold-on-dark) 55%,transparent);
+--bar-grad:var(--acct-bar-grad,linear-gradient(90deg,#A8874E,#E8C877 60%,#F7E9C4));
+--seam-h:76px;
+--gd-rgb:var(--acct-gd-rgb,232,213,168);
+--btn-glow:var(--acct-btn-glow,201,162,75);
+--btn-edge:var(--acct-btn-edge,120,86,26);
+--btn-r:var(--acct-btn-r,2px);
+--sl-eyebrow:var(--acct-sl-eyebrow,var(--gold-on-dark));
+--deep-mute:var(--acct-deep-mute,color-mix(in srgb,var(--deep-ink) 62%,transparent));
+--hero-glow:var(--acct-hero-glow,color-mix(in srgb,var(--gold) 45%,transparent));
+--foot-ink:var(--acct-foot-ink,#A99FB0);
+--foil-v:var(--acct-foil-v,linear-gradient(180deg,#FBEFC4 0%,#D9B45C 46%,#A8813A 62%,#F2DFA6 100%));
+--foil-h:var(--acct-foil-h,linear-gradient(115deg,#F7E9C4 0%,#DCBE85 28%,#A8874E 48%,#DCBE85 70%,#F7E9C4 100%));
+--foil-btn:var(--acct-foil-btn,linear-gradient(135deg,#B8862F 0%,#E8C877 22%,#FFF3CC 46%,#E8C877 62%,#A87828 100%));
+--foil-frame:var(--acct-foil-frame,linear-gradient(135deg,#A8874E 0%,#F7E9C4 22%,#DCBE85 45%,#F7E9C4 52%,#DCBE85 60%,#A8874E 100%));
+}
+/* 紙の上の金文字（4.5:1以上）。--gold-hi の箔グラデは変更しない */
+.eyebrow,.ew{color:var(--gold-text)}
+.s-light .eyebrow,.s-light .ew{color:var(--sl-eyebrow)}
+
+/* §3-1 闇セクション */
+.s-deep{background:linear-gradient(180deg,var(--deep-d) 0%,var(--deep) 100%);color:var(--deep-ink)}
+.s-deep h2,.s-deep .big,.s-deep h3,.s-deep .pname,.s-deep p,.s-deep li{color:var(--deep-ink)}
+.s-deep .eyebrow,.s-deep .chapno{color:var(--gold-on-dark)}
+.s-deep::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")}
+.s-deep .gline{background:linear-gradient(90deg,transparent,var(--gold-on-dark),transparent)}
+.s-deep .whisper,.s-deep .tc{color:var(--deep-mute)}
+.s-deep .num-gold,.s-deep .pr-stage .nanto{color:var(--gold-on-dark)}
+.s-deep .num-gold{background:var(--foil-v);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 0 rgba(0,0,0,.35))}
+.s-deep .price small,.s-deep .was{color:var(--deep-mute)}
+.s-deep .goal{color:var(--deep-ink);border-color:rgba(var(--gd-rgb),.4)}
+.s-deep .pr-stage .off{background:var(--deep-d);color:var(--gold-on-dark);box-shadow:0 0 0 1px rgba(var(--gd-rgb),.55)}
+.s-deep .item{background:rgba(255,255,255,.035);border-color:rgba(var(--gd-rgb),.26)}
+.s-deep .item::before{border-color:rgba(var(--gd-rgb),.16)}
+.s-deep .item.rec{background:linear-gradient(180deg,var(--deep),var(--deep-d)) padding-box,var(--foil-frame) border-box;background-size:auto,220% 100%}
+.s-deep .badge{background:var(--deep-d);color:var(--gold-on-dark);box-shadow:0 0 0 1px rgba(var(--gd-rgb),.55)}
+.s-deep .crowd,.s-deep .crowd.hot{background:rgba(255,255,255,.04);border-color:color-mix(in srgb,var(--gold-on-dark) 30%,transparent);color:var(--deep-ink)}
+.s-deep .crowd .dot{background:var(--gold-on-dark);animation-name:crowdPulseGold}
+@keyframes crowdPulseGold{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--gold-on-dark) 60%,transparent)}100%{box-shadow:0 0 0 12px transparent}}
+.s-deep .crowd b{color:var(--gold-on-dark)}
+.s-deep .crowd .ct{color:var(--deep-ink)}
+.s-deep .stock .sl{color:var(--deep-mute)}
+.s-deep .stock .sl b{color:#fff;background:linear-gradient(100deg,var(--red-band),var(--red-band-hi) 50%,var(--red-band));padding:1px 8px;box-shadow:0 0 0 1px rgba(var(--gd-rgb),.55);white-space:nowrap;margin-left:auto}
+.s-deep .stock .bar{background:rgba(255,255,255,.08);border-color:rgba(var(--gd-rgb),.3)}
+.s-deep .stock .bar i{background:var(--bar-grad)}
+.s-deep .linebox{border:0;border-top:1px solid rgba(var(--gd-rgb),.5);border-bottom:1px solid rgba(var(--gd-rgb),.5);background:none;text-align:center}
+.s-deep .linebox::before{display:none}
+.s-deep .linebox .lh{color:var(--gold-on-dark)}
+.s-deep .linebox .ls{color:var(--deep-mute)}
+.s-deep .big{color:var(--deep-ink)}
+.s-deep .sign{color:var(--gold-on-dark)}
+.s-deep .cta .arrow,.s-deep .cta .sub{color:var(--gold-on-dark)}
+.s-deep .cta .btn,.s-deep .rec .pbtn{background:var(--foil-btn);background-size:200% 100%;color:var(--deep-d);text-shadow:none}
+.s-deep .rec .pbtn{box-shadow:0 12px 32px rgba(var(--btn-glow),.42),0 2px 0 rgba(255,255,255,.5) inset,0 -3px 0 rgba(var(--btn-edge),.35) inset,0 0 0 1px rgba(var(--btn-edge),.6)}
+.s-deep .pbtn .s{opacity:.85}
+
+/* §3-1 ヒーロー・特別料金（闇） */
+.hero{background:radial-gradient(at 70% 10%,var(--hero-glow) 0%,transparent 55%),linear-gradient(180deg,var(--deep-d) 0%,var(--deep) 100%)}
+.hero-copy .lead{color:var(--gold-on-dark)}
+.hero-copy h1{color:var(--deep-ink)}
+.hero-copy .tag{display:inline-block;width:auto;max-width:100%;align-self:center;color:var(--gold-on-dark);background:var(--deep-d);border:0;box-shadow:0 0 0 1px var(--gold-rule);padding:7px 16px}
+.scrollcue span{color:var(--deep-mute)}
+.limited{background:linear-gradient(180deg,var(--deep) 0%,var(--deep-d) 100%);box-shadow:0 0 0 100vmax var(--deep-d);clip-path:inset(0 -100vmax);padding-top:12px;padding-bottom:calc(36px + var(--seam-h));max-width:none;position:relative}
+.limited::after{content:"";position:absolute;left:0;right:0;bottom:0;height:var(--seam-h);background:linear-gradient(180deg,var(--deep-d),var(--bg));pointer-events:none}
+.limited>.limbox{max-width:calc(var(--maxw) - var(--pad) * 2);margin-left:auto;margin-right:auto}
+.limbox{background:rgba(255,255,255,.04);border:1px solid rgba(var(--gd-rgb),.7);box-shadow:none;background-clip:padding-box}
+.limbox::before{inset:6px;border:1px solid rgba(var(--gd-rgb),.3)}
+.limbox .lt{background:linear-gradient(100deg,var(--red-band),var(--red-band-hi) 50%,var(--red-band));color:#fff;box-shadow:0 0 0 1px rgba(var(--gd-rgb),.55)}
+.limbox .lh{color:var(--deep-ink)}
+.limbox .lh .g{background:var(--foil-h);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 0 rgba(0,0,0,.35))}
+.limbox .ld{color:var(--deep-mute)}
+.limbox .ld b{color:var(--gold-on-dark)!important}
+.limbox .stock .sl{color:var(--deep-mute)}
+.limbox .stock .sl b{color:var(--gold-on-dark);font-weight:800;background:none;padding:0;box-shadow:none;white-space:nowrap;margin-left:auto}
+.limbox .stock .bar{background:rgba(255,255,255,.08);border-color:rgba(var(--gd-rgb),.3);border-radius:0;height:6px}
+.limbox .stock .bar i{background:var(--bar-grad);border-radius:0}
+.limbox .stock .sn{color:var(--deep-mute)}
+
+/* §3-5 ヒーロー写真（紙テーマの額装＋階調） */
+.hero-person img{object-position:var(--hp-pos,72% 16%);transform-origin:var(--hp-origin,72% 30%);transform:scale(var(--hp-s,1.12));filter:contrast(1.06) saturate(.86) brightness(.94);animation:heroDrift 34s ease-in-out infinite alternate}
+/* 顔の位置・拡大は写真ごとに .hero-person の --hp-pos/--hp-origin/--hp-s/--hp-s2 で個別指定 */
+@keyframes heroDrift{from{transform:scale(var(--hp-s,1.12))}to{transform:scale(var(--hp-s2,1.16))}}
+.hero-person::after{background:linear-gradient(180deg,rgba(0,0,0,.14) 0%,transparent 14%,transparent 48%,color-mix(in srgb,var(--deep) 80%,transparent) 88%,var(--deep) 100%);box-shadow:inset 24px 0 30px -18px var(--deep),inset -24px 0 30px -18px var(--deep)}
+.hero-person .tint{position:absolute;inset:0;background:var(--deep);mix-blend-mode:soft-light;opacity:.22;pointer-events:none}
+.ph img,.ph-full img{filter:brightness(.9) saturate(.88) contrast(1.05)}
+
+/* §3-6 CTA：角2px・多層シャドウ・脈動1.015・bob削除 */
+.cta .btn,.rec .pbtn,.minicta,.pbtn,.sticky .row a,.capsule,.gift,.pr-stage .off{border-radius:var(--btn-r)!important}
+.stock .bar,.stock .bar i{border-radius:0}
+.cta .btn,.rec .pbtn{box-shadow:0 12px 32px rgba(var(--btn-glow),.42),0 2px 0 rgba(255,255,255,.5) inset,0 -3px 0 rgba(var(--btn-edge),.35) inset,0 0 0 1px rgba(var(--btn-edge),.6);animation:ctaShine 3.4s ease-in-out infinite,ctaPulse 2.6s ease-in-out infinite}
+.cta .btn{min-height:64px}
+.cta .arrow{animation:none}
+@keyframes ctaPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.015)}}
+.sticky .row a{min-height:52px;animation:none;box-shadow:0 12px 32px rgba(var(--btn-glow),.42),0 2px 0 rgba(255,255,255,.5) inset,0 -3px 0 rgba(var(--btn-edge),.35) inset,0 0 0 1px rgba(var(--btn-edge),.6);background:var(--foil-btn);background-size:200% 100%;color:var(--deep-d)}
+.sticky .row a::after{animation-duration:6s}
+.minicta{min-height:60px;max-width:400px;border:1px solid color-mix(in srgb,var(--gold) 80%,transparent);background:transparent;box-shadow:none}
+/* .dec-note 直後の連打CTA：テキストリンク調 */
+.dec-note + .minicta{border:0;background:none;padding:8px 0;min-height:0;text-decoration:underline;text-underline-offset:6px}
+.dec-note + .minicta::after{display:none}
+
+/* §5-1 インライン上書きから移した行 */
+.item .thumb{aspect-ratio:5/4;height:auto;margin-top:8px;overflow:hidden}
+.item .thumb img{width:100%;height:100%;object-fit:cover;object-position:top}
+.thumb{border:1px solid rgba(var(--gd-rgb),.5);box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.pbtn{min-height:60px}
+@media(max-width:600px){.strata{padding-left:34px}}
+.dec-note{padding:42px 24px;text-align:center;max-width:760px;margin:auto}
+.dec-note p{max-width:660px;margin:18px auto}
+
+/* 継ぎ目：闇↔紙の溶け込み帯（design_standard 改訂追記4） */
+.seam{height:var(--seam-h);pointer-events:none}
+.seam-dp{background:linear-gradient(180deg,var(--deep-d),var(--bg))}
+.seam-pd{background:linear-gradient(180deg,var(--bg),var(--deep-d))}
+.seam-dc{background:linear-gradient(180deg,var(--deep-d),var(--cream))}
+.seam-cd{background:linear-gradient(180deg,var(--cream),var(--bg))}
+
+/* §3-9 .warn：塗りなし・赤系見出し */
+.warn{background:none;border:1px solid var(--red-text)}
+.warn h3,.warn .eyebrow{color:var(--red-text)}
+
+/* 追従バー・フッター：闇 */
+.sticky{background:linear-gradient(180deg,color-mix(in srgb,var(--deep) 88%,transparent),var(--deep-d));border-top:1px solid color-mix(in srgb,var(--gold-on-dark) 45%,transparent)}
+.sticky .lab{color:var(--gold-on-dark)}
+.sticky .pricebox .p{background:var(--foil-v);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sticky .pricebox .p small{-webkit-text-fill-color:var(--gold-on-dark)}
+.sticky .pricebox .n{color:var(--foot-ink)}
+footer{background:linear-gradient(180deg,var(--deep),var(--deep-d));border-top:0}
+footer p,footer a{color:var(--foot-ink)}
+
+/* JS無効時の保険：出現アニメの隠し側を全て解除 */
+html:not(.js) .rv,html:not(.js) .rv-s,html:not(.js) .rv-b,html:not(.js) .stag>*,html:not(.js) .lines .ln,html:not(.js) .pr-stage .nanto,html:not(.js) .pr-stage .price,html:not(.js) .pr-stage .off{opacity:1;transform:none;filter:none}
+html:not(.js) .stock .bar i{width:var(--fill,92%)}
+html:not(.js) .growline{width:78%}
+html:not(.js) .wipe{background-size:100% 2px}
+html:not(.js) .chk li::after{transform:rotate(-45deg) scale(1)}
+html:not(.js) .pr-stage .was s::after{transform:scaleX(1)}
+
+/* reduced-motion 補完（lp.css の対象外要素） */
+@media(prefers-reduced-motion:reduce){
+  .pr-stage .nanto,.pr-stage .price,.pr-stage .off{opacity:1;transform:none}
+  .stock .bar i{width:var(--fill,92%)}
+}
+
+/* LP監査1128: 取消線の色／見出しの文節保持／ヒーローH1の文節保持 */
+.s-deep .pr-stage .was s::after{background:var(--deep-mute)}
+.s-deep h2,.s-deep .pname{word-break:keep-all;overflow-wrap:anywhere}
+.hero-copy h1{word-break:keep-all;overflow-wrap:anywhere;line-break:strict}
+.hero-copy h1 .nw{display:inline-block}

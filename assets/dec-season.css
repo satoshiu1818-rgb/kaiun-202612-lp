@@ -1,0 +1,33 @@
+/* 12月：雪（CSSのみ）。design_standard.md §3-8 */
+.dec-snow{position:fixed;inset:0;overflow:hidden;z-index:20;pointer-events:none;contain:strict}
+.dec-snow i{
+  position:absolute;top:-6vh;left:var(--x);
+  width:var(--size);height:var(--size);border-radius:50%;
+  background:radial-gradient(circle,var(--snow,#FFFFFF) 0 36%,rgba(255,255,255,.55) 58%,transparent 72%);
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--snow-rim,var(--deep)) 18%,transparent),0 0 10px var(--snow-glow,rgba(255,255,255,.65));
+  opacity:0;
+  animation:dec-fall var(--duration) linear var(--delay) infinite,
+            dec-sway calc(var(--duration) / 3.2) ease-in-out var(--delay) infinite alternate;
+  will-change:transform,opacity;
+}
+.dec-snow i:nth-child(3n+1){filter:blur(.6px);--op:.42}
+.dec-snow i:nth-child(3n+2){--op:.62}
+.dec-snow i:nth-child(3n){--op:.78;box-shadow:0 0 0 1px color-mix(in srgb,var(--snow-rim,var(--deep)) 24%,transparent),0 0 14px var(--snow-glow,rgba(255,255,255,.65))}
+@keyframes dec-fall{
+  0%{transform:translate3d(0,-8vh,0);opacity:0}
+  6%{opacity:var(--op,.6)}
+  92%{opacity:calc(var(--op,.6) * .7)}
+  100%{transform:translate3d(0,112vh,0);opacity:0}
+}
+@keyframes dec-sway{from{margin-left:-14px}to{margin-left:14px}}
+@media(max-width:600px){.dec-snow i:nth-child(n+10){display:none}}
+@media(prefers-reduced-motion:reduce){.dec-snow{display:none}}
+@media print{.dec-snow{display:none}}
+
+/* 付随装飾：雪玉のフリーズ */
+.dec-frieze{height:26px;display:flex;justify-content:center;align-items:center;gap:14px;margin:0 auto 22px;color:var(--gold);pointer-events:none}
+.dec-frieze::before,.dec-frieze::after{content:"";height:1px;width:68px;background:linear-gradient(90deg,transparent,currentColor);opacity:.6}
+.dec-frieze::after{transform:rotate(180deg)}
+.dec-frieze i{display:block;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 35% 32%,#fff 0%,#EEF2FF 60%,color-mix(in srgb,var(--deep) 35%,#fff) 100%);box-shadow:0 0 16px rgba(255,255,255,.7)}
+.dec-note{background:radial-gradient(ellipse at 85% 0%,color-mix(in srgb,var(--gold) 10%,transparent),transparent 65%);border-top:1px solid color-mix(in srgb,var(--gold) 24%,transparent);border-bottom:1px solid color-mix(in srgb,var(--gold) 18%,transparent)}
+.hero-copy{background-image:radial-gradient(ellipse at 100% 100%,color-mix(in srgb,var(--gold) 10%,transparent),transparent 65%)}

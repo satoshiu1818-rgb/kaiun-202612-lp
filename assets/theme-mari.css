@@ -1,0 +1,478 @@
+/* =====================================================================
+   まり テーマ「和紙の生成り × 松葉 × 金」（spi-sales-lp / theme-mari.css）
+   lp.css の後に読み込む。構造・文字階層・動きは共通、見た目だけ差し替える。
+   世界観：畳の和室・着物・湯呑み・やわらかい光。若い母性。角はやわらかく（6px）、罫は金の細線。
+   みづき（藍×金の闇・直角）／あまね（象牙×ボルドー・直角）と並べても別人に見えることが目的。
+   ===================================================================== */
+:root{
+  --bg:#F6F1E6;  --bg2:#F0E9DA; --bg3:#F3EDE0;            /* 和紙の生成り */
+  --paper:#2D2A24;                                          /* 本文＝墨 */
+  --mute:#8A8374;
+  --gold:#B79A5A;  --gold-hi:#8A6E2E;  --gold-lo:#DACB9A;  /* 金（紙の上は濃いめを文字に） */
+  --shu:#B4453A;                                            /* 朱（辛口ではなく、あたたかい強調） */
+  --marker:rgba(218,203,154,.55);
+  --matsu:#2F4A3A; --matsu-d:#1F3328; --matsu-l:#4C6B58; --kin:#E6D5A6; --washi:#FCF9F2;
+  --cream:#24382D; --ink:#F2EEE3; --ink2:#C9C4B3; --kon:#E6D5A6; --rose:#E6D5A6; --wis:#B79A5A; /* 明セクション→深い松葉に反転 */
+  --cta-a:#1F3328; --cta-b:#3E5C4A; --cta-c:#5B7A66; --cta-d:#1F3328; --cta-ink:#F6EFD9;
+  --r:6px;
+}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--paper);position:relative}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.06;background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")}
+body>*{position:relative;z-index:1}
+strong{color:var(--shu)}
+em{color:var(--gold-hi)}
+
+/* 見出し・罫線 */
+h2{color:var(--matsu);letter-spacing:.1em}
+h2::after{background:linear-gradient(180deg,var(--gold),transparent)}
+h3{color:var(--matsu)}
+.chapno,.eyebrow{color:var(--gold)}
+.gline{background:linear-gradient(90deg,transparent,var(--gold),transparent);width:72px}
+.orn::before,.orn::after{background:linear-gradient(90deg,transparent,var(--gold))}
+.orn i{background:var(--gold);box-shadow:none;border-radius:50%;transform:none;width:6px;height:6px}
+.vline{background:linear-gradient(180deg,transparent,var(--gold),transparent)}
+.growline{background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.sign{color:var(--matsu)}
+.big{color:var(--matsu)}
+.big .g,.peak .l2 em{background:linear-gradient(115deg,#8A6E2E,#B79A5A 45%,#E6D5A6 52%,#8A6E2E 70%,#B79A5A);-webkit-background-clip:text;background-clip:text;color:transparent}
+.big .s{color:var(--mute)}
+.wipe::after{background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.gg{background:linear-gradient(115deg,#8A6E2E 0%,#B79A5A 28%,#E6D5A6 48%,#B79A5A 70%,#8A6E2E 100%);background-size:230% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
+.quote{color:var(--matsu);border-color:rgba(183,154,90,.5);background:var(--washi);border-radius:var(--r);padding:34px 26px}
+.quote::before,.quote::after{border-color:var(--gold);opacity:.9}
+.ew{color:var(--gold-hi)}
+.lead-p{color:var(--paper)}
+.whisper{color:var(--mute)}
+.peak .l2{color:var(--matsu)}
+.peak .l1,.peak .l3{color:var(--mute)}
+.mk{background:linear-gradient(transparent 62%,var(--marker) 62%,var(--marker) 94%,transparent 94%)}
+
+/* セクション：和紙 ＋ 反転の松葉の間 */
+.s-dark{background:var(--bg)}
+.s-ai{background:linear-gradient(180deg,#EFE7D6 0%,var(--bg) 100%)}
+.s-ai-r{background:linear-gradient(180deg,var(--bg) 0%,#EEE6D5 100%)}
+.s-light{background:linear-gradient(180deg,#24382D,#1B2B22);color:#F2EEE3}
+.s-light h2,.s-light .big,.s-light h3{color:#F2EEE3}
+.s-light p{color:#EAE4D4}
+.s-light .eyebrow,.s-light .chapno{color:#C9AF6A}
+.s-light .gline{background:linear-gradient(90deg,transparent,#C9AF6A,transparent)}
+.s-light .whisper{color:#C9C4B3}
+.s-light strong{color:#F3C9A6}
+.s-light .quote{color:#F2EEE3;border-color:rgba(201,175,106,.5);background:rgba(255,255,255,.04)}
+.s-light .quote::before,.s-light .quote::after{border-color:#C9AF6A}
+.s-light .ew{color:#E6D5A6}
+.s-light h2::after{background:linear-gradient(180deg,#C9AF6A,transparent)}
+.s-light .cta .arrow,.s-light .cta .sub{color:#E6D5A6}
+.s-light .cta .micro{color:#C9C4B3}
+.s-light .cta .btn{background:linear-gradient(135deg,#8A6E2E,#C9AF6A 45%,#E6D5A6 52%,#C9AF6A 60%,#8A6E2E);color:#1B2B22;text-shadow:none;box-shadow:0 12px 32px rgba(0,0,0,.35)}
+.s-light .minicta{border-color:rgba(201,175,106,.7);background:transparent;color:#E6D5A6;box-shadow:none}
+.s-light .minicta .s{color:#C9C4B3}
+.s-light .steps .st::before{background:#24382D;color:#E6D5A6;border-color:#C9AF6A}
+.s-light .steps .st::after{background:linear-gradient(180deg,rgba(201,175,106,.5),rgba(201,175,106,.08))}
+.s-light .steps .st h4{color:#F2EEE3}
+.s-light .steps .st .when{color:#1B2B22;background:#E6D5A6;border:none}
+.s-light .steps .st p{color:#EAE4D4}
+.s-light .shot img{box-shadow:0 12px 34px rgba(0,0,0,.4)}
+.s-light .stat .num{background:linear-gradient(180deg,#F6EBC9,#C9AF6A 50%,#8A6E2E 66%,#E6D5A6);-webkit-background-clip:text;background-clip:text}
+.s-light .stat .unit{-webkit-text-fill-color:#E6D5A6}
+.s-light .stat .lbl{color:#C9C4B3}
+
+/* 帯：七宝つなぎ（金の細線） */
+.band{height:64px;background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cg fill='none' stroke='%23B79A5A' stroke-opacity='.28' stroke-width='.9'%3E%3Ccircle cx='24' cy='24' r='24'/%3E%3Ccircle cx='0' cy='0' r='24'/%3E%3Ccircle cx='48' cy='0' r='24'/%3E%3Ccircle cx='0' cy='48' r='24'/%3E%3Ccircle cx='48' cy='48' r='24'/%3E%3C/g%3E%3C/svg%3E");background-size:48px 48px;-webkit-mask-image:linear-gradient(180deg,transparent,#000 45%,transparent);mask-image:linear-gradient(180deg,transparent,#000 45%,transparent)}
+
+/* 進捗バー・粒子 */
+.prog i{background:linear-gradient(90deg,var(--gold-lo),var(--gold-hi));box-shadow:none}
+.particle{background:radial-gradient(circle,rgba(183,154,90,.9) 0%,rgba(183,154,90,0) 70%)}
+
+/* ヒーロー：和紙の上に、角のやわらかい縦長写真 */
+.hero{background:linear-gradient(180deg,#EBE2CF 0%,var(--bg) 100%);min-height:auto;padding:22px 0 6px}
+.hero-person{height:auto;width:calc(100% - 48px);max-width:400px;aspect-ratio:4/5;margin:0 auto;border-radius:14px;overflow:hidden;box-shadow:0 22px 50px rgba(31,51,40,.22);position:relative}
+.hero-person::before{content:"";position:absolute;inset:10px;border:1px solid rgba(230,213,166,.8);border-radius:8px;z-index:3;pointer-events:none}
+.hero-person img{object-position:center 20%;animation:heroDrift 34s ease-in-out infinite alternate;transform:scale(1.02)}
+.hero-person::after{background:linear-gradient(180deg,transparent 60%,rgba(31,51,40,.28))}
+.hero-flare{display:none}
+.hero-copy{padding:28px 24px 30px}
+.hero-copy .lead{color:var(--gold-hi);letter-spacing:.36em;font-size:12.5px}
+.hero-copy h1{color:var(--matsu);letter-spacing:.06em}
+.hero-copy .tag{color:var(--matsu);border:1px solid rgba(183,154,90,.7);background:var(--washi);border-radius:999px;letter-spacing:.16em;font-size:12px}
+.scrollcue span{color:var(--mute)}
+.scrollcue i{background:linear-gradient(180deg,var(--gold),transparent)}
+
+/* 写真 */
+.ph{position:relative;border-radius:var(--r);overflow:hidden}
+.ph::after{background:linear-gradient(180deg,rgba(45,42,36,.08),transparent 30%,transparent 70%,rgba(45,42,36,.30))}
+.ph.wide::before{content:"";position:absolute;inset:8px;border:1px solid rgba(230,213,166,.7);border-radius:3px;z-index:2;pointer-events:none}
+.ph .cap{color:#fff}
+.ph.portrait{background:transparent;padding:0;border:1px solid rgba(183,154,90,.6);border-radius:14px;box-shadow:0 18px 40px rgba(31,51,40,.18)}
+.ph.portrait::before{inset:8px;border-color:rgba(230,213,166,.75);border-radius:8px}
+.ph.portrait img{border-radius:12px}
+.ph-full::after{background:linear-gradient(180deg,var(--bg),transparent 22%,transparent 74%,var(--bg))}
+.ph-full img{filter:brightness(.9) saturate(.95)}
+.ph-full .ov{color:#fff}
+
+/* 限定ボックス：和紙の白、金の細線、松葉のリボン */
+.limbox{border:1px solid rgba(183,154,90,.7);background:var(--washi);border-radius:var(--r);box-shadow:0 14px 40px rgba(31,51,40,.10);padding:28px 18px 24px}
+.limbox::before{inset:5px;border:1px solid rgba(183,154,90,.3);border-radius:3px}
+.limbox .lt{background:var(--matsu);color:var(--kin);letter-spacing:.3em;border-radius:999px;box-shadow:0 6px 16px rgba(31,51,40,.3)}
+.limbox .lh{color:var(--matsu)}
+.limbox .lh .g{color:var(--gold-hi)}
+.limbox .ld{color:var(--mute)}
+.limbox .ld b{color:var(--matsu)!important}
+.cd .u b{color:var(--matsu);text-shadow:none}
+.cd .u.s b{color:var(--shu)}
+.cd .u i{color:var(--mute)}
+.cd .sep{color:rgba(180,69,58,.7)}
+.cd-expired{color:var(--matsu)}
+.limbox .ln2{color:var(--gold-hi)}
+.limbox .ln2 b{color:var(--shu)!important}
+.stock .sl{color:var(--mute)}
+.stock .sl b{color:var(--shu)}
+.stock .bar{background:rgba(31,51,40,.08);border-color:rgba(183,154,90,.5);height:8px}
+.stock .bar i{background:linear-gradient(90deg,#2F4A3A,#B79A5A 60%,#E6D5A6);box-shadow:none}
+.stock .sn{color:var(--mute)}
+
+/* 混雑帯・LINE箱・特典 */
+.crowd{border:1px solid rgba(183,154,90,.55);background:var(--washi);color:var(--paper);border-radius:var(--r)}
+.crowd.hot{border-color:rgba(180,69,58,.5);background:var(--washi)}
+.crowd b{color:var(--matsu)}
+.crowd .ct{color:var(--shu)}
+.crowd .dot{background:var(--shu);box-shadow:0 0 0 0 rgba(180,69,58,.6)}
+@keyframes crowdPulse{0%{box-shadow:0 0 0 0 rgba(180,69,58,.6)}100%{box-shadow:0 0 0 12px rgba(180,69,58,0)}}
+.linebox{border:1px solid rgba(183,154,90,.6);background:var(--washi);box-shadow:none;border-radius:var(--r);position:relative}
+.linebox::before{content:"";position:absolute;inset:6px;border:1px solid rgba(183,154,90,.3);border-radius:3px;pointer-events:none}
+.linebox .lh{color:var(--matsu)}
+.linebox .ls{color:var(--mute)}
+.bonus{border:1px solid var(--gold);background:var(--washi);border-radius:var(--r);box-shadow:0 14px 40px rgba(31,51,40,.10),inset 0 0 0 5px var(--washi),inset 0 0 0 6px rgba(183,154,90,.35)}
+.bonus .bt{background:var(--matsu);color:var(--kin);letter-spacing:.3em;border-radius:999px}
+.bonus .bh{color:var(--matsu)}
+.bonus .bw{color:var(--mute)}
+.bonus .bw s{color:var(--paper)}
+.bonus .bfree{background:linear-gradient(180deg,#8A6E2E,#B79A5A 52%,#8A6E2E 68%,#E6D5A6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bonus .bn{color:var(--mute)}
+.gift{color:var(--gold-hi);border:1px solid rgba(183,154,90,.7);background:transparent}
+
+/* CTA：やわらかい角。強＝松葉塗り＋金ヘアライン、弱＝金ヘアラインのみ */
+.minicta{border:1px solid rgba(183,154,90,.85);background:var(--washi);color:var(--matsu);box-shadow:none;border-radius:999px;letter-spacing:.08em}
+.minicta::after{background:linear-gradient(100deg,transparent,rgba(230,213,166,.4),transparent)}
+.minicta .s{color:var(--mute)}
+.cta .arrow{color:var(--gold)}
+.cta .btn{border-radius:999px;background:linear-gradient(135deg,#1F3328 0%,#3E5C4A 45%,#5B7A66 52%,#3E5C4A 60%,#1F3328 100%);background-size:200% 100%;color:var(--kin);letter-spacing:.14em;box-shadow:0 16px 36px rgba(31,51,40,.32),inset 0 0 0 1px rgba(230,213,166,.6);text-shadow:none}
+.cta .btn::after{background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent)}
+.cta .sub{color:var(--matsu)}
+.cta .micro{color:var(--mute)}
+.sticky{background:linear-gradient(180deg,rgba(252,249,242,.85),rgba(252,249,242,.98));border-top:1px solid rgba(183,154,90,.6)}
+.sticky .lab{color:var(--gold-hi)}
+.sticky .lab .hot{color:var(--shu)}
+.sticky .lab .cdmini{color:var(--matsu)}
+.sticky .pricebox .p{background:linear-gradient(180deg,#8A6E2E,#B79A5A 50%,#8A6E2E 66%,#B79A5A);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sticky .pricebox .p small{-webkit-text-fill-color:var(--gold-hi)}
+.sticky .pricebox .n{color:var(--mute)}
+.sticky .row a{color:var(--kin);background:linear-gradient(135deg,#1F3328,#3E5C4A 48%,#1F3328);box-shadow:0 8px 22px rgba(31,51,40,.32),inset 0 0 0 1px rgba(230,213,166,.55);letter-spacing:.12em}
+
+/* 比較表・カード */
+.vs{border:1px solid rgba(183,154,90,.7);background:var(--washi);border-radius:var(--r)}
+.vs .r{border-bottom-color:rgba(183,154,90,.3)}
+.vs .c{color:var(--paper)}
+.vs .c:first-child{border-right-color:rgba(183,154,90,.3);color:var(--mute)}
+.vs .r.hd .c{background:#EFE7D6;color:var(--matsu)}
+.vs .r.hd .c:last-child{background:var(--matsu);color:var(--kin)}
+.vs .r.pr .c .v{color:var(--matsu)}
+.vs .r.pr .c:last-child .v{background:linear-gradient(180deg,#8A6E2E,#B79A5A 50%,#8A6E2E 66%,#B79A5A);-webkit-background-clip:text;background-clip:text;color:transparent}
+.vs .tick{color:var(--matsu)}
+.vs .tick::before{color:var(--gold)}
+.item,.plan{border:1px solid rgba(183,154,90,.7);background:var(--washi);box-shadow:none;position:relative;border-radius:var(--r)}
+.item::before,.plan::before{content:"";position:absolute;inset:6px;border:1px solid rgba(183,154,90,.3);border-radius:3px;pointer-events:none;z-index:0}
+.item>*,.plan>*{position:relative;z-index:1}
+.item.rec,.plan.rec{border:1px solid var(--gold);background:linear-gradient(180deg,#FBF6E8,var(--washi));box-shadow:0 18px 50px rgba(31,51,40,.16)}
+.item.rec::before,.plan.rec::before{border-color:rgba(183,154,90,.6)}
+@keyframes recGlow{0%{box-shadow:0 18px 50px rgba(31,51,40,.16)}35%{box-shadow:0 18px 70px rgba(138,110,46,.4)}100%{box-shadow:0 18px 50px rgba(31,51,40,.16)}}
+.badge{background:var(--matsu);color:var(--kin);letter-spacing:.2em;border-radius:999px;box-shadow:0 6px 16px rgba(31,51,40,.3)}
+.thumb{margin:-12px -6px 22px;border:1px solid rgba(183,154,90,.5);border-radius:4px}
+.rec .thumb{margin:-20px -14px 24px}
+.thumb::after{background:linear-gradient(180deg,transparent 70%,rgba(45,42,36,.2) 100%)}
+.pname{color:var(--matsu);letter-spacing:.12em}
+.pterm{color:var(--gold)}
+.was{color:var(--mute)}
+.price{color:var(--matsu)}
+.price small{color:var(--gold-hi)}
+.num-gold{background:linear-gradient(180deg,#8A6E2E 0%,#B79A5A 46%,#8A6E2E 62%,#B79A5A 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:none}
+.goal{color:var(--matsu);border-color:rgba(183,154,90,.45)}
+.rec .goal{border-color:rgba(183,154,90,.8)}
+.honest{color:var(--mute)}
+.item ul li::before,.plan ul li::before{background:var(--gold);border-radius:50%;transform:none}
+.pbtn{color:var(--matsu);border:1px solid rgba(183,154,90,.9);background:transparent;letter-spacing:.1em}
+.rec .pbtn{color:var(--kin);background:linear-gradient(135deg,#1F3328,#3E5C4A 48%,#1F3328);box-shadow:0 12px 28px rgba(31,51,40,.3),inset 0 0 0 1px rgba(230,213,166,.55);text-shadow:none}
+.pr-stage .was s::after{background:var(--shu)}
+.pr-stage .nanto{color:var(--shu)}
+.pr-stage .off{background:var(--matsu);color:var(--kin);letter-spacing:.12em}
+.wave .rings i{border-color:rgba(183,154,90,.7)}
+.wave .rings i.f{background:radial-gradient(circle,#E6D5A6 0%,#8A6E2E 75%);box-shadow:none}
+.wave .lbl{color:var(--mute)}
+.wave .cnt{color:var(--matsu)}
+.moonwrap .m{border-color:rgba(183,154,90,.8)}
+.moonwrap .m i{background:var(--gold)}
+.moonwrap.on .m4 i{background:linear-gradient(135deg,#E6D5A6,#8A6E2E)}
+.moonwrap .lb{color:var(--mute)}
+.dev{background:var(--washi);border:1px solid rgba(183,154,90,.55);box-shadow:none;border-radius:var(--r)}
+.dev::before,.dev::after{border-color:var(--gold)}
+.dev .no{color:var(--gold-hi)}
+.flow .fi{border:1px solid rgba(183,154,90,.55);background:var(--washi);border-radius:var(--r)}
+.flow .fa{background:linear-gradient(180deg,var(--gold),transparent)}
+.flow .fa::after{border-color:var(--gold)}
+.flow .fi.last{border-color:var(--matsu);background:var(--matsu);color:var(--kin)}
+
+/* 深さ図・チェック・実績・流れ */
+.depth .band-label.f{color:var(--mute)}
+.depth .band-label.d{color:var(--gold-hi)}
+.depth .layer{border-left-color:rgba(183,154,90,.5)}
+.depth .layer .tag{color:var(--mute);border:1px solid rgba(183,154,90,.6);background:transparent;letter-spacing:.2em;border-radius:999px}
+.depth .layer .nm{color:var(--paper)}
+.depth .layer .sub{color:var(--mute)}
+.depth .layer.deep{background:linear-gradient(90deg,rgba(183,154,90,.14),transparent);border-left-color:var(--matsu)}
+.depth .layer.deep .tag{color:var(--matsu);border-color:rgba(47,74,58,.6)}
+.depth .layer.deep .nm{color:var(--matsu)}
+.depth .cap2{color:var(--mute)}
+.chk li{border-bottom-color:rgba(183,154,90,.35)}
+.chk li::before{border-color:rgba(183,154,90,.9);border-radius:3px}
+.chk li::after{border-color:var(--matsu)}
+.chk li.on{background:linear-gradient(90deg,rgba(183,154,90,.12),transparent)}
+.stat .num{background:linear-gradient(180deg,#8A6E2E,#B79A5A 50%,#8A6E2E 66%,#B79A5A);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .unit{-webkit-text-fill-color:var(--matsu)}
+.stat .lbl{color:var(--mute)}
+.steps .st::before{border-color:rgba(183,154,90,.9);color:var(--matsu);background:var(--washi)}
+.steps .st::after{background:linear-gradient(180deg,rgba(183,154,90,.6),rgba(183,154,90,.1))}
+.steps .st h4{color:var(--matsu)}
+.steps .st .when{color:var(--gold-hi);border-color:rgba(183,154,90,.6);border-radius:999px}
+
+/* 声・警告・FAQ・フッター */
+.shot img{box-shadow:0 12px 30px rgba(31,51,40,.16);border-radius:4px}
+.warn{border:1px solid rgba(180,69,58,.45);background:var(--washi);border-radius:var(--r)}
+.warn h3,.warn .eyebrow{color:var(--shu)}
+.faq{border-bottom-color:rgba(183,154,90,.35)}
+.faq summary{color:var(--paper)}
+.faq summary::after{border-color:var(--gold)}
+.faq .ans{color:#4B463C}
+footer{border-top-color:rgba(183,154,90,.4)}
+footer p,footer a{color:var(--mute)}
+
+/* =====================================================================
+   まり 骨格差分 v2（あまねと並べても別物にする）
+   ヒーロー重ねカード／左寄せ見出し＋縦罫／畳縁の引用／松葉反転の限定箱・特典箱／横組みプランカード／丸ゴシック本文
+   ===================================================================== */
+:root{--sans:"Zen Maru Gothic","Noto Sans JP","Hiragino Sans",sans-serif}
+body{font-family:var(--sans)}
+
+/* ヒーロー：全幅写真＋重なる和紙カード */
+.hero{padding:0 0 10px;background:var(--bg)}
+.hero{padding:28px 0 10px;background:linear-gradient(180deg,#EBE2CF 0%,var(--bg) 100%)}
+.hero-person{width:min(72vw,320px);max-width:320px;aspect-ratio:1/1;height:auto;border-radius:50%;margin:0 auto;box-shadow:0 18px 50px rgba(31,51,40,.22),0 0 0 8px var(--washi),0 0 0 9px rgba(183,154,90,.55)}
+.hero-person img{object-position:center center;transform:none;animation:none}
+.hero-person::after{background:linear-gradient(180deg,transparent 70%,rgba(31,51,40,.18))}
+.hero-copy{margin:-40px 18px 0;max-width:600px}
+@media (min-width:640px){.hero-copy{margin:-40px auto 0;width:calc(100% - 36px)}}
+.hero-person::before{display:none}
+.hero-person::after{background:linear-gradient(180deg,transparent 55%,rgba(31,51,40,.35))}
+.hero-copy{position:relative;z-index:4;margin:-64px 18px 0;padding:28px 22px 26px;background:var(--washi);border-radius:14px;box-shadow:0 18px 44px rgba(31,51,40,.18);text-align:left;border:1px solid rgba(183,154,90,.45)}
+.hero-copy::before{content:"";position:absolute;left:0;top:26px;bottom:26px;width:4px;background:linear-gradient(180deg,var(--matsu),var(--gold));border-radius:0 3px 3px 0}
+.hero-copy .lead{text-align:left;letter-spacing:.3em;margin-bottom:10px}
+.hero-copy h1{text-align:left;font-size:clamp(28px,8.2vw,40px);line-height:1.5}
+.hero-copy .tag{display:inline-block;margin-top:4px}
+.scrollcue{align-items:flex-start;margin-top:14px}
+
+/* 見出し：左寄せ＋縦罫、英字は緑の札 */
+.chapno{text-align:left;padding-left:14px}
+.eyebrow{text-align:left;display:inline-block;padding:3px 12px;border-radius:999px;background:var(--matsu);color:var(--kin)!important;font-size:9.5px;letter-spacing:.3em!important;margin-left:0}
+.eyebrow:not(.on){letter-spacing:.2em!important}
+h2{text-align:left;padding-left:14px;border-left:4px solid var(--matsu);line-height:1.5;letter-spacing:.06em;margin-bottom:12px}
+h2::after{display:none}
+h2.sm{border-left-width:3px}
+.gline{margin:14px 0 30px;width:100%;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.s-light h2{border-left-color:var(--kin)}
+.s-light .eyebrow{background:var(--kin);color:var(--matsu-d)!important}
+.s-light .gline{background:linear-gradient(90deg,var(--kin),transparent)}
+h3.tc{text-align:left!important;padding-left:12px;border-left:3px solid var(--gold)}
+
+/* 引用：畳の縁（左の太い縦罫）、左寄せ */
+.quote{text-align:left;padding:22px 20px 22px 24px;border:none;border-left:6px solid var(--matsu);border-radius:0 12px 12px 0;background:var(--washi)}
+.quote::before,.quote::after{display:none}
+.quote p{text-wrap:pretty}
+.s-light .quote{border-left-color:var(--kin);background:rgba(255,255,255,.05)}
+.big{text-align:left;padding-left:14px}
+.big.xl{text-align:center;padding-left:0}
+.whisper{text-align:left;padding-left:14px}
+.peak{text-align:center}
+.lead-p{padding-left:14px;border-left:2px solid rgba(183,154,90,.5)}
+
+/* 限定ボックス・特典：松葉に反転 */
+.limbox{background:linear-gradient(180deg,#2F4A3A,#1F3328);border-color:rgba(230,213,166,.5);color:#F2EEE3;border-radius:14px}
+.limbox::before{border-color:rgba(230,213,166,.25);border-radius:9px}
+.limbox .lt{background:var(--kin);color:var(--matsu-d)}
+.limbox .lh{color:#F2EEE3}
+.limbox .lh .g{color:var(--kin)}
+.limbox .ld{color:#C9C4B3}
+.limbox .ld b{color:var(--kin)!important}
+.cd .u b{color:#fff}
+.cd .u.s b{color:#F3C9A6}
+.cd .u i{color:#C9C4B3}
+.cd .sep{color:rgba(230,213,166,.7)}
+.cd-expired{color:var(--kin)}
+.limbox .ln2{color:var(--kin)}
+.limbox .ln2 b{color:#F3C9A6!important}
+.limbox .stock .sl{color:#C9C4B3}
+.limbox .stock .sl b{color:#F3C9A6}
+.limbox .stock .bar{background:rgba(255,255,255,.12);border-color:rgba(230,213,166,.4)}
+.limbox .stock .bar i{background:linear-gradient(90deg,#B79A5A,#E6D5A6)}
+.limbox .stock .sn{color:#C9C4B3}
+.bonus{background:linear-gradient(180deg,#2F4A3A,#1F3328);border-color:var(--kin);border-radius:14px;box-shadow:0 14px 40px rgba(31,51,40,.25),inset 0 0 0 5px #2A4335,inset 0 0 0 6px rgba(230,213,166,.4)}
+.bonus .bt{background:var(--kin);color:var(--matsu-d)}
+.bonus .bh{color:#F2EEE3}
+.bonus .bw{color:#C9C4B3}
+.bonus .bw s{color:#F2EEE3}
+.bonus .bfree{background:linear-gradient(180deg,#F6EBC9,#E6D5A6 52%,#B79A5A 68%,#F6EBC9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bonus p{color:#EAE4D4}
+.bonus .bn{color:#C9C4B3}
+
+/* 装置カード：左に番号丸、左縁 */
+.dev{padding:26px 22px 24px 24px;border-left:5px solid var(--matsu);border-radius:0 12px 12px 0}
+.dev::before,.dev::after{display:none}
+.dev .no{display:inline-block;width:30px;height:30px;border-radius:50%;background:var(--matsu);color:var(--kin);text-align:center;line-height:30px;letter-spacing:0;font-size:13px;margin-bottom:10px}
+.dev h3{font-size:19px}
+
+/* 混雑帯・LINE箱：左縁 */
+.crowd,.crowd.hot{border-left:5px solid var(--shu);border-radius:0 12px 12px 0}
+.linebox{text-align:left;border-left:5px solid var(--matsu);border-radius:0 12px 12px 0}
+.linebox::before{display:none}
+
+/* プランカード：横組み（左に小さな正方形サムネ、右に名前と価格） */
+.plan{display:grid;grid-template-columns:112px 1fr;column-gap:16px;align-items:start;padding:24px 20px 24px}
+.plan::before{display:none}
+.plan .thumb{grid-column:1;grid-row:1/span 3;margin:0;border-radius:10px;width:112px;aspect-ratio:1/1}
+.plan .thumb img{aspect-ratio:1/1}
+.plan .badge{position:absolute;top:-14px;left:18px;transform:none;margin:0}
+.plan.rec{padding-top:36px}
+.plan .pname{grid-column:2;text-align:left;font-size:17px;margin:2px 0 2px;letter-spacing:.06em}
+.plan .pterm{grid-column:2;text-align:left;margin-bottom:6px}
+.plan .price{grid-column:2;text-align:left;font-size:30px}
+.plan.rec .price{font-size:34px}
+.plan .goal,.plan .wave,.plan p,.plan ul,.plan .gift,.plan .pbtn{grid-column:1/-1}
+.plan .goal{margin-top:18px}
+.plan.rec{grid-template-columns:112px 1fr;border:2px solid var(--gold);background:linear-gradient(180deg,#FBF6E8,var(--washi));box-shadow:0 0 0 1px rgba(138,110,46,.25),0 18px 50px rgba(31,51,40,.16),0 0 40px rgba(183,154,90,.35)}
+.plan.rec .thumb{margin:0}
+.plan .gift{display:inline-block;width:auto;justify-self:start}
+@media (max-width:360px){.plan,.plan.rec{grid-template-columns:96px 1fr}.plan .thumb{width:96px}}
+
+/* 商品カード（本鑑定）は縦のまま、角だけやわらかく */
+.item .thumb{border-radius:10px}
+
+/* ヒーローカード：常に中央、最大600px（PCで左寄りにならないよう最後に指定） */
+.hero-copy{margin:-40px auto 0!important;width:calc(100% - 36px);max-width:600px}
+
+/* =====================================================================
+   まり v3 高級感補正（ユーザー指摘「チープ」→ 直角・金ヘアライン・明朝の強弱・余白）
+   ===================================================================== */
+:root{--sans:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;--r:0px}
+body{font-family:var(--sans);font-size:17px;line-height:2.05;letter-spacing:.02em}
+section{padding:72px 0}
+p{margin-bottom:1.9em}
+
+/* 文字の強弱：核心は大きく、囁きは小さく薄く */
+.lead-p{font-size:19px;line-height:1.95;border-left:none;padding-left:0;font-family:var(--serif);font-weight:600;color:var(--matsu)}
+.whisper{font-size:13.5px;letter-spacing:.08em;line-height:2.1;color:#9A9384;text-align:left;padding-left:0}
+.big{font-size:clamp(31px,9vw,44px);line-height:1.45;letter-spacing:.02em;margin:48px 0;padding-left:0;text-align:left}
+.big.xl{font-size:clamp(38px,11.5vw,56px);text-align:center}
+.quote{font-size:19.5px;line-height:2;letter-spacing:.03em;border-left:1px solid var(--gold);border-radius:0;background:transparent;padding:6px 0 6px 22px;margin:44px 0}
+.quote p{margin-bottom:1.1em}
+h2{font-size:clamp(30px,8.6vw,40px);line-height:1.4;letter-spacing:.08em;border-left:none;padding-left:0;margin-bottom:10px}
+h2.sm{font-size:24px}
+.chapno{padding-left:0;font-size:12px;letter-spacing:.6em}
+.eyebrow{background:transparent;color:var(--gold-hi)!important;padding:0;border-radius:0;font-size:10.5px;letter-spacing:.5em!important;border-bottom:1px solid rgba(183,154,90,.5);padding-bottom:6px;margin-bottom:14px}
+.s-light .eyebrow{background:transparent;color:#E6D5A6!important;border-bottom-color:rgba(230,213,166,.5)}
+.gline{margin:12px 0 34px;height:1px;width:56px;background:var(--gold)}
+h3.tc{border-left:none;padding-left:0;font-size:22px}
+.ew{font-size:1.28em}
+.sign{font-size:20px;letter-spacing:.3em}
+
+/* 角を立てる：全部の角丸をゼロに、ピルをやめる */
+.hero-copy,.limbox,.limbox::before,.bonus,.crowd,.crowd.hot,.linebox,.vs,.item,.plan,.dev,.flow .fi,.warn,.ph,.ph.wide::before,.ph.portrait,.ph.portrait::before,.ph.portrait img,.thumb,.plan .thumb,.item .thumb,.shot img,.hero-person::before{border-radius:0!important}
+.minicta,.cta .btn,.sticky .row a,.pbtn,.rec .pbtn,.hero-copy .tag,.limbox .lt,.bonus .bt,.badge,.gift,.depth .layer .tag,.steps .st .when,.stock .bar,.stock .bar i{border-radius:0!important}
+
+/* ヒーロー：丸い写真に細い金の二重リング、カードは影なし＋金ヘアライン（和紙の短冊） */
+.hero-person{box-shadow:0 0 0 6px var(--bg),0 0 0 7px var(--gold),0 0 0 14px var(--bg),0 0 0 15px rgba(183,154,90,.45)}
+.hero-copy{background:var(--washi);box-shadow:none;border:1px solid rgba(183,154,90,.7);padding:30px 26px 28px;margin-top:-30px!important}
+.hero-copy::before{width:2px;background:var(--gold);top:22px;bottom:22px}
+.hero-copy .lead{font-size:12px;letter-spacing:.42em;color:var(--gold-hi)}
+.hero-copy h1{font-size:clamp(32px,9.4vw,46px);line-height:1.42;letter-spacing:.04em}
+.hero-copy .tag{background:transparent;border:1px solid rgba(183,154,90,.7);letter-spacing:.24em;font-size:11.5px;padding:8px 16px}
+
+/* 箱：松葉の反転箱に金の二重ヘアライン */
+.limbox{box-shadow:0 18px 50px rgba(31,51,40,.18);border:1px solid rgba(230,213,166,.65)}
+.limbox::before{border:1px solid rgba(230,213,166,.35);inset:6px}
+.limbox .lt{letter-spacing:.4em;padding:8px 22px}
+.limbox .lh{font-size:clamp(19px,5.5vw,24px);letter-spacing:.02em}
+.cd .u b{font-size:clamp(34px,9.6vw,46px)}
+.bonus{box-shadow:0 18px 50px rgba(31,51,40,.2),inset 0 0 0 6px #2A4335,inset 0 0 0 7px rgba(230,213,166,.45)}
+.crowd,.crowd.hot,.linebox,.dev{border-left-width:1px;border-left-color:rgba(183,154,90,.7)}
+.dev{position:relative;padding:28px 24px}
+.dev::before,.dev::after{display:block;content:"";position:absolute;width:20px;height:20px;border-color:var(--gold)}
+.dev::before{top:-1px;left:-1px;border-top:1px solid;border-left:1px solid}
+.dev::after{bottom:-1px;right:-1px;border-bottom:1px solid;border-right:1px solid}
+.dev .no{background:transparent;color:var(--gold-hi);border:1px solid var(--gold);border-radius:50%!important;width:32px;height:32px;line-height:30px;font-size:13px}
+
+/* ボタン：直角、松葉の塗りに金ヘアラインのインセット */
+.cta .btn{letter-spacing:.18em;font-size:19px;box-shadow:0 16px 36px rgba(31,51,40,.3),inset 0 0 0 1px rgba(230,213,166,.7),inset 0 0 0 4px #24382D,inset 0 0 0 5px rgba(230,213,166,.4)}
+.minicta{border:1px solid rgba(183,154,90,.85);background:transparent;letter-spacing:.12em}
+.pbtn{letter-spacing:.14em}
+.rec .pbtn{box-shadow:0 12px 28px rgba(31,51,40,.3),inset 0 0 0 1px rgba(230,213,166,.6)}
+.sticky .row a{letter-spacing:.14em}
+
+/* カード：金の二重ヘアライン */
+.item::before,.plan::before{display:block;border:1px solid rgba(183,154,90,.35)}
+.plan::before{inset:6px;z-index:0}
+.plan>*{position:relative;z-index:1}
+.plan .badge{left:18px;top:-13px;letter-spacing:.24em}
+.plan.rec{border:1px solid var(--gold);box-shadow:0 0 0 1px rgba(138,110,46,.25),0 18px 50px rgba(31,51,40,.16),0 0 40px rgba(183,154,90,.35)}
+.item ul li::before,.plan ul li::before{border-radius:0;transform:rotate(45deg);width:5px;height:5px}
+.wave .rings i{border-radius:0;transform:rotate(45deg);width:8px;height:8px}
+.moonwrap .m{border-radius:50%!important}
+.orn i{border-radius:0;transform:rotate(45deg);width:7px;height:7px}
+.chk li::before{border-radius:0}
+.depth .layer .tag{letter-spacing:.28em}
+.steps .st::before{border-radius:50%!important}
+.hero-person{border-radius:50%!important}
+.hero-person::before{display:none}
+
+.limbox .ld{font-size:12.5px}
+.hero-copy h1{word-break:keep-all}
+
+/* 推奨カード：あまねと同じ金の太枠（グラデ枠＋内側ヘアライン＋金の光） */
+.item.rec,.plan.rec{border:4px solid transparent;background:linear-gradient(180deg,#FBF6E8,var(--washi)) padding-box,linear-gradient(135deg,#8A6E2E 0%,#E6D5A6 22%,#B79A5A 45%,#FFF3CC 52%,#B79A5A 60%,#8A6E2E 100%) border-box;background-size:auto,220% 100%;animation:goldFrame 6s ease-in-out infinite;box-shadow:0 0 0 1px rgba(138,110,46,.35),0 18px 50px rgba(31,51,40,.18),0 0 46px rgba(183,154,90,.5)}
+.item.rec::before,.plan.rec::before{inset:8px;border:1px solid rgba(183,154,90,.8);display:block}
+@keyframes goldFrame{0%,100%{background-position:0 0,0% 0}50%{background-position:0 0,100% 0}}
+@keyframes recGlow{0%{box-shadow:0 0 0 1px rgba(138,110,46,.35),0 18px 50px rgba(31,51,40,.18),0 0 46px rgba(183,154,90,.5)}35%{box-shadow:0 0 0 1px rgba(138,110,46,.5),0 18px 70px rgba(31,51,40,.2),0 0 90px rgba(230,213,166,.9)}100%{box-shadow:0 0 0 1px rgba(138,110,46,.35),0 18px 50px rgba(31,51,40,.18),0 0 46px rgba(183,154,90,.5)}}
+.plan.rec{grid-template-columns:112px 1fr}
+
+.pr-stage .off,.limbox .lt,.bonus .bt{border-radius:0!important}
+.item.rec .badge{top:-14px}
+
+/* ヒーロー v4：あまねと同じ長方形の額装（4:5・金の二重ヘアライン）。丸型は廃止 */
+.hero{padding:22px 0 8px}
+.hero-person{width:calc(100% - 48px);max-width:400px;aspect-ratio:4/5;border-radius:0!important;margin:0 auto;box-shadow:0 22px 50px rgba(31,51,40,.22);position:relative}
+.hero-person::before{display:block;content:"";position:absolute;inset:10px;border:1px solid rgba(230,213,166,.85);border-radius:0;z-index:3;pointer-events:none}
+.hero-person img{object-position:center 22%;animation:heroDrift 34s ease-in-out infinite alternate;transform:scale(1.02)}
+.hero-person::after{background:linear-gradient(180deg,transparent 62%,rgba(31,51,40,.26))}
+.hero-copy{margin:22px auto 0!important;width:calc(100% - 48px);max-width:400px;padding:26px 24px 22px;border:1px solid rgba(183,154,90,.55);background:transparent;box-shadow:none}
+.hero-copy::before{display:none}
+.hero-copy .lead{text-align:center}
+.hero-copy h1{text-align:center;font-size:clamp(30px,8.8vw,42px);line-height:1.45}
+.hero-copy .tag{display:block;width:max-content;max-width:100%;margin:6px auto 0}
+.scrollcue{align-items:center;margin-top:12px}
+.scrollcue i{height:26px}
+@media (min-width:700px){.hero-person,.hero-copy{max-width:440px}}
+
+/* ===== 12月LP（design_standard §4） ===== */
+:root{--deep:#1F3328;--deep-d:#15241C;--deep-ink:#F2EEE3;--gold-on-dark:#E6D5A6}
+/* 12月：dec-layout.css 用のアカウント値（赤は朱 #B4453A 系、角は 6px） */
+:root{--acct-red-text:#A63A30;--acct-hero-glow:#2F4A3A;--acct-foot-ink:#9EA197;--acct-btn-r:6px}
+/* ヒーローの重なりカードは深色ヒーローの上に載るため、和紙塗りをやめて金ヘアラインのみにする */
+.hero-copy{background:transparent;border-color:var(--gold-rule)}

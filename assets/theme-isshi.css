@@ -1,0 +1,168 @@
+/* =====================================================================
+   いっしー 本鑑定テーマ「深い藍紫 × 銀・プラチナ」（spi-sales-lp / theme-isshi.css）
+   lp.css の後に読み込む。構造・文字階層・動きは共通、色だけ差し替える。
+   みづき（藍×金）／あまね（生成り×ボルドー）と被らない：夜の旅・月光・銀の羅針。
+
+   方針：
+   1) 基本は :root のトークン上書き（--gold 系は「銀」の値を入れる）
+   2) lp.css 側でトークン化されていない金色の直書き（gradient / rgba）だけ、
+      「色プロパティのみ」を上書きする。
+   3) 構造セレクタ（.item>* / position / z-index / margin / padding / display 等）は一切触らない。
+   ===================================================================== */
+:root{
+  /* 闇：深い藍紫 */
+  --bg:#0E0B22;  --bg2:#1A1540;  --bg3:#130F2E;
+  /* 銀・プラチナ（変数名は lp.css に合わせて gold のまま） */
+  --gold:#A9ABCF;  --gold-hi:#E8E9F6;  --gold-lo:#6C6F9E;
+  --paper:#EFEEF8;           /* 本文 */
+  --mute:#9795BA;            /* 囁き・注釈 */
+  --shu:#E887A3;             /* 痛みの言葉・感情ピーク（ローズ） */
+  --marker:rgba(169,171,207,.30);
+  /* 明セクション：冷たい月光の白 */
+  --cream:#F2F0FA;
+  --ink:#26233F;
+  --ink2:#5C5A7C;
+  --kon:#2B2670;             /* 見出し・アクセント（深い藍紫） */
+  --rose:#9A4A92;            /* 明セクションの強調（菫ローズ） */
+  --wis:#5B63BD;
+  /* CTA：プラチナ */
+  --cta-a:#7D80B6; --cta-b:#C8CAEA; --cta-c:#F5F6FF; --cta-d:#6A6DA6;
+  --cta-ink:#12102B;
+}
+
+/* ---------- 直書きの金グラデを銀に（背景グラデ・文字色のみ） ---------- */
+.big .g,
+.num-gold,
+.vs .r.pr .c:last-child .v,
+.sticky .pricebox .p,
+.pricepeek .it .v,
+.stat .num,
+.bonus .bfree{
+  background-image:linear-gradient(180deg,#FFFFFF,#CBCDEC 48%,#8E91C6 64%,#E9EAFA);
+}
+.gg,
+.peak .l2 em{
+  background-image:linear-gradient(115deg,#F4F5FF 0%,#C4C7E8 28%,#8B8EC2 48%,#C4C7E8 70%,#F4F5FF 100%);
+}
+.gg{background-size:230% 100%}
+.peak .l2 em{background-size:220% 100%}
+.jump{text-shadow:0 0 24px rgba(200,202,240,.38)}
+
+/* ---------- 銀のヘアライン（rgba 直書き分） ---------- */
+a{-webkit-tap-highlight-color:rgba(169,171,207,.18)}
+.quote{border-top-color:rgba(169,171,207,.34);border-bottom-color:rgba(169,171,207,.34);background-image:linear-gradient(180deg,rgba(169,171,207,.07),transparent)}
+.chk li{border-bottom-color:rgba(169,171,207,.18)}
+.chk li::before{border-color:rgba(169,171,207,.65)}
+.chk li.on{background-image:linear-gradient(90deg,rgba(169,171,207,.09),transparent)}
+body.ed .chk li{border-color:rgba(169,171,207,.38)}
+.hero-copy .tag{border-color:rgba(169,171,207,.55)}
+.ph.portrait{background-image:linear-gradient(160deg,rgba(169,171,207,.32),rgba(169,171,207,.07))}
+.ph.portrait::before{border-color:rgba(169,171,207,.3)}
+
+/* 深さ図 */
+.depth .layer{border-left-color:rgba(169,171,207,.3)}
+.depth .layer .tag{border-color:rgba(169,171,207,.34)}
+.depth .layer.deep{background-image:linear-gradient(90deg,rgba(169,171,207,.14),transparent)}
+.depth .layer.deep .tag{border-color:rgba(169,171,207,.62)}
+
+/* 比較表 */
+.vs{border-color:rgba(169,171,207,.34)}
+.vs .r{border-bottom-color:rgba(169,171,207,.18)}
+.vs .c:first-child{border-right-color:rgba(169,171,207,.18)}
+.vs .r.hd .c:last-child{background:rgba(169,171,207,.18)}
+
+/* 商品カード（色・影のみ。レイアウトは触らない） */
+.item,.plan{border-color:rgba(169,171,207,.28);background-image:linear-gradient(180deg,rgba(255,255,255,.04),rgba(0,0,0,.2))}
+.item.rec,.plan.rec{background-image:linear-gradient(180deg,rgba(169,171,207,.17),rgba(0,0,0,.22));box-shadow:0 0 60px rgba(150,153,214,.28),inset 0 0 70px rgba(169,171,207,.08)}
+@keyframes recGlow{
+  0%{box-shadow:0 0 60px rgba(150,153,214,.28),inset 0 0 70px rgba(169,171,207,.08)}
+  35%{box-shadow:0 0 110px rgba(214,216,246,.55),inset 0 0 90px rgba(169,171,207,.18)}
+  100%{box-shadow:0 0 60px rgba(150,153,214,.28),inset 0 0 70px rgba(169,171,207,.08)}
+}
+.goal{border-top-color:rgba(169,171,207,.24);border-bottom-color:rgba(169,171,207,.24)}
+.rec .goal{border-top-color:rgba(169,171,207,.52);border-bottom-color:rgba(169,171,207,.52)}
+.pbtn{border-color:rgba(169,171,207,.62);background-color:rgba(169,171,207,.09)}
+.rec .pbtn{box-shadow:0 10px 26px rgba(150,153,214,.38),0 2px 0 rgba(255,255,255,.45) inset}
+.pr-stage .off{background-image:linear-gradient(100deg,#D5D7F2,#FFFFFF 50%,#BFC2E8)}
+.badge{color:#12102B}
+
+/* 限定ボックス：リボンは菫ローズ（藍紫の上で警告色が浮かないように） */
+.limbox{border-color:rgba(232,135,163,.55);background-image:linear-gradient(180deg,rgba(232,135,163,.10),rgba(0,0,0,.25))}
+.limbox::before{border-color:rgba(169,171,207,.28)}
+.limbox .lt{background-image:linear-gradient(100deg,#8E2E5C,#E887A3 50%,#8E2E5C)}
+.cd .u b{text-shadow:0 0 18px rgba(232,135,163,.55)}
+.cd .u.s b{color:#FFC1D2}
+.cd .sep{color:rgba(232,135,163,.8)}
+.stock .sl b{color:#FFC1D2}
+.stock .bar{border-color:rgba(169,171,207,.28)}
+.stock .bar i{background-image:linear-gradient(90deg,#8E2E5C,#E887A3 60%,#FFC1D2);box-shadow:0 0 12px rgba(232,135,163,.55)}
+.sticky .lab .hot{color:#FFC1D2}
+
+/* 混雑帯・LINE箱・警告 */
+.crowd{border-color:rgba(169,171,207,.32);background-color:rgba(169,171,207,.07)}
+.crowd.hot{border-color:rgba(232,135,163,.6);background-image:linear-gradient(180deg,rgba(232,135,163,.14),rgba(0,0,0,.25))}
+.crowd .dot{background:#E887A3}
+@keyframes crowdPulse{0%{box-shadow:0 0 0 0 rgba(232,135,163,.7)}100%{box-shadow:0 0 0 12px rgba(232,135,163,0)}}
+.linebox{border-color:rgba(169,171,207,.42);background-image:linear-gradient(180deg,rgba(169,171,207,.11),rgba(0,0,0,.2))}
+.warn{border-color:rgba(232,135,163,.42);background-image:linear-gradient(180deg,rgba(142,46,92,.14),rgba(0,0,0,.25))}
+.warn h3,.warn .eyebrow{color:#F0A6BC}
+
+/* CTA */
+.minicta{border-color:rgba(169,171,207,.58);background-image:linear-gradient(180deg,rgba(169,171,207,.15),rgba(169,171,207,.05))}
+.cta .btn{box-shadow:0 12px 32px rgba(150,153,214,.42),0 2px 0 rgba(255,255,255,.5) inset,0 -3px 0 rgba(70,73,126,.35) inset}
+.sticky{border-top-color:rgba(169,171,207,.42)}
+.sticky .row a{box-shadow:0 6px 20px rgba(150,153,214,.4),0 2px 0 rgba(255,255,255,.45) inset}
+.sticky .row a{background-image:linear-gradient(135deg,var(--cta-a),#D9DBF4 48%,var(--cta-d))}
+
+/* 明セクションのCTA（銀は明地で沈むため、深い藍紫に反転） */
+.s-light .cta .btn{background-image:linear-gradient(135deg,#231E5C 0%,#3A3490 30%,#5B55B8 50%,#3A3490 70%,#231E5C 100%);color:#F3F2FF;box-shadow:0 12px 30px rgba(35,30,92,.32)}
+.s-light .cta .btn::after{background-image:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent)}
+.s-light .cta .arrow,.s-light .cta .sub{color:var(--kon)}
+
+/* 進捗バー・ヒーローの光・粒子 */
+.prog i{box-shadow:0 0 10px rgba(214,216,246,.6)}
+.hero-flare{background-image:linear-gradient(100deg,transparent 30%,rgba(214,218,255,.16) 50%,transparent 70%)}
+
+/* 青海波の帯：銀の線に */
+.band{background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60'%3E%3Cg fill='none' stroke='%23A9ABCF' stroke-opacity='.13' stroke-width='1'%3E%3Ccircle cx='0' cy='60' r='56'/%3E%3Ccircle cx='0' cy='60' r='42'/%3E%3Ccircle cx='0' cy='60' r='28'/%3E%3Ccircle cx='60' cy='60' r='56'/%3E%3Ccircle cx='60' cy='60' r='42'/%3E%3Ccircle cx='60' cy='60' r='28'/%3E%3Ccircle cx='120' cy='60' r='56'/%3E%3Ccircle cx='120' cy='60' r='42'/%3E%3Ccircle cx='120' cy='60' r='28'/%3E%3Ccircle cx='30' cy='30' r='56'/%3E%3Ccircle cx='30' cy='30' r='42'/%3E%3Ccircle cx='90' cy='30' r='56'/%3E%3Ccircle cx='90' cy='30' r='42'/%3E%3C/g%3E%3C/svg%3E")}
+
+/* FAQ・フッター */
+.faq{border-bottom-color:rgba(169,171,207,.2)}
+.faq .ans{color:#D5D3E8}
+footer{border-top-color:rgba(169,171,207,.18)}
+
+/* ヒーロー写真の見え方補正（2026-10-08 差し替えた横長写真に合わせる）
+   lp.css の object-position:38% 26% は縦長写真向け。
+   今回の写真は顔が中央やや上にあるため、中央寄りに補正する。 */
+.hero-person img{object-position:50% 30%}
+
+/* 表示速度の改善（2026-10-08）: 本文ゴシックのWebフォント読み込みを廃止。
+   Hiragino Sans（iOS/Mac標準）で視覚的な差はほぼ無く、約1MB削減できる。
+   見出しの明朝（Shippori Mincho B1）は世界観の核なので維持する。 */
+:root{--sans:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",system-ui,sans-serif}
+
+/* ===== 12月LP（design_standard §4） ===== */
+:root{--deep:#0E0B22;--deep-d:#090718;--deep-ink:#EFEEF8;--gold-on-dark:#E8E9F6}
+/* 12月：dec-layout.css 用のアカウント値（金ではなく銀。--gold 系変数は元から銀の値） */
+:root{
+--acct-gold-text:#C8CAEA;--acct-sl-eyebrow:var(--kon);
+--acct-red-text:#E887A3;--acct-red-band:#A33B5E;--acct-red-band-hi:#B24A6E;
+--acct-gd-rgb:232,233,246;--acct-btn-glow:169,171,207;--acct-btn-edge:90,92,140;
+--acct-deep-mute:#B9B8D6;--acct-hero-glow:#231D5C;--acct-foot-ink:#A5A3C8;
+--acct-foil-v:linear-gradient(180deg,#FFFFFF 0%,#D9DBF4 46%,#9A9DC8 62%,#F5F6FF 100%);
+--acct-foil-h:linear-gradient(115deg,#F5F6FF 0%,#C8CAEA 28%,#8E91BE 48%,#C8CAEA 70%,#F5F6FF 100%);
+--acct-foil-btn:linear-gradient(135deg,#6A6DA6,#B7BADF 45%,#F5F6FF 52%,#B7BADF 60%,#6A6DA6);
+--acct-foil-frame:linear-gradient(135deg,#6A6DA6 0%,#F5F6FF 22%,#B7BADF 45%,#FFFFFF 52%,#B7BADF 60%,#6A6DA6 100%);
+--snow-glow:rgba(214,218,255,.7);
+--acct-bar-grad:linear-gradient(90deg,#8E91BE,#D9DBF4 60%,#F5F6FF);
+}
+/* v3再監査対応：.s-light間の素地帯を消す／.layer の金を銀へ */
+section.s-light + .wrap{background:var(--cream);padding:1px 0}
+.depth .layer{border-left-color:rgba(154,157,200,.35)}
+.depth .layer .tag{border-color:rgba(154,157,200,.4)}
+.depth .layer.deep{background:linear-gradient(90deg,rgba(154,157,200,.14),transparent);border-left-color:#B7BADF}
+.depth .layer.deep .tag{color:#D9DBF4;border-color:rgba(154,157,200,.6)}
+.depth .layer.deep .nm{color:#D9DBF4}
+
+/* LP監査1128: .s-light 内の minicta の白塗りを解除（lp.css基礎ルールの残存） */
+.s-light .minicta{background:transparent}
