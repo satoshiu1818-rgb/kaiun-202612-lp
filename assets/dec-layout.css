@@ -107,7 +107,7 @@
 .dec-note + .minicta::after{display:none}
 
 /* §5-1 インライン上書きから移した行 */
-.item .thumb{aspect-ratio:5/4;height:auto;margin-top:8px;overflow:hidden}
+.item .thumb{aspect-ratio:1/1;height:auto;margin-top:8px;overflow:hidden}
 .item .thumb img{width:100%;height:100%;object-fit:cover;object-position:top}
 .thumb{border:1px solid rgba(var(--gd-rgb),.5);box-shadow:0 18px 50px rgba(0,0,0,.35)}
 .pbtn{min-height:60px}

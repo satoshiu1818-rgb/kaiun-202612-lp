@@ -180,6 +180,24 @@
   .vsl-play{position:absolute;right:3.5%;bottom:5%;width:clamp(48px,11%,68px);aspect-ratio:68/48;transform:none;filter:drop-shadow(0 4px 10px rgba(0,0,0,.45));transition:transform .15s}
   .vsl-poster:hover .vsl-play,.vsl-poster:focus-visible .vsl-play{transform:scale(1.08)}
   .after-offer{margin-top:22px}
+
+  /* 限定ボックス（ヘッダー直後）・招待ボックス */
+  .limited{max-width:600px;margin:0 auto;padding:28px 20px 2px}
+  .limbox{border:1px solid rgba(210,168,67,.55);border-radius:8px;background:var(--cosmos);color:var(--night-text);text-align:center;padding:26px 18px 22px;background-image:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(210,168,67,.16), transparent 70%);box-shadow:0 12px 32px rgba(8,18,48,.22)}
+  .limbox .lt{display:inline-block;background:linear-gradient(100deg,#B5432E,#E8836B 50%,#B5432E);color:#fff;font-weight:700;font-size:13px;letter-spacing:.2em;padding:7px 18px;box-shadow:0 4px 14px rgba(0,0,0,.35);margin-bottom:16px}
+  .limbox .lh{font-family:var(--serif);font-size:20px;font-weight:700;line-height:1.6;color:#fff;margin-bottom:8px}
+  .limbox .lh .g{color:var(--gold-bright)}
+  .limbox .ld{font-size:13px;color:var(--night-soft);line-height:1.9}
+  .limbox .ld b{color:var(--gold-bright)}
+  .limbox .stock{margin:14px 0 4px;text-align:left}
+  .limbox .sl{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;letter-spacing:.1em;color:var(--night-soft);margin-bottom:6px}
+  .limbox .sl b{color:#E8A392;letter-spacing:.05em}
+  .limbox .bar{height:9px;border-radius:999px;background:rgba(255,255,255,.10);border:1px solid rgba(210,168,67,.3);overflow:hidden}
+  .limbox .bar i{display:block;height:100%;width:var(--fill,92%);border-radius:999px;background:linear-gradient(90deg,#B5432E,#E8836B 60%,#FFB4A0)}
+  .limbox .sn{font-size:11.5px;color:var(--night-soft);margin-top:8px;text-align:center;letter-spacing:.04em;line-height:1.8}
+  .invite{margin:24px 0;padding:26px 18px 24px;border:1px solid rgba(210,168,67,.55);border-radius:6px;background:rgba(210,168,67,.07);text-align:center}
+  .invite h3{font-size:19px;line-height:1.55;font-weight:700;letter-spacing:.05em;margin:0 0 12px;color:var(--ink)}
+  .invite p{margin:0 0 16px}
 </style>
 <style>.dec-visual{max-width:460px;margin:22px auto;border:1px solid var(--gold);border-radius:12px;overflow:hidden}.dec-visual img{display:block;width:100%;height:auto}.dec-n1{padding:24px 20px;margin:20px 0;background:var(--cream);border-left:1px solid var(--gold)}h1 .campaign-title{font-size:.72em;color:var(--gold-bright);margin-top:18px}h1 .campaign-sub{font-size:.62em;letter-spacing:.08em}.btn{min-height:60px}footer a{color:var(--ink-soft)}@media(max-width:600px){h1{font-size:27px!important;line-height:1.7!important}.campaign-title{font-size:22px!important}.dec-visual{max-width:100%}}:root{--cosmos:#101a32;--paper:#f7f4eb;--gold:#c7ab64;--aqua:#91a8bf}</style><link href="assets/dec-season.css" rel="stylesheet"/>
 <style>
@@ -199,7 +217,7 @@
 <div class="dec-visual"><img alt="天赦日 お金のブロック解除鑑定 本格特別鑑定 9,980円（税込）" fetchpriority="high" height="1024" src="img/product/to_1216.jpg" width="1024"/></div>
 <div class="offer compact"><div class="lab">2026年12月の本格特別鑑定　特別料金</div><div class="price"><span class="was">通常価格 19,900円</span><span><span class="now">9,980</span><span class="yen">円</span> <span class="unit">（税込）</span></span><span class="save">9,920円お得</span></div><a class="btn js-buy" href="https://pmsdqb4c2p0emj0yagvc.stores.jp/items/6b08c3e4e3d76f191ad0d44c" rel="noopener" target="_blank">本鑑定を申し込む<small>特別料金 9,980円（税込）・お申し込みは1分</small></a><p class="after-btn">購入後、決済時のお名前・購入商品名・購入完了画面を、僕の公式LINEに送ってください。</p></div>
 <div class="after-offer">
-<p>診断で分かったのは、あなたの<strong><span class="nw">「今」</span></strong>。<br/>本鑑定で書くのは、<span class="nw">その先です。</span></p>
+<p>無料鑑定で分かったのは、あなたの<strong><span class="nw">「今」</span></strong>。<br/>本鑑定で書くのは、<span class="nw">その先です。</span></p>
 <div class="promise">
 <div><span class="k">1</span><span>お金が残らない不安の奥にある、ブロックの重なりとほどけていく順番</span></div>
 <div><span class="k">2</span><span>お金の流れが動き出す時期の目安と、その前に日常で確かめられる合図</span></div>
@@ -207,10 +225,23 @@
 </div>
 </div>
 </div></div>
+<div class="limited">
+<div class="limbox">
+<span class="lt">特別料金</span>
+<div class="lh">無料鑑定を受け取った<br/>方だけに、<br/><span class="g">特別料金</span>でご案内しています</div>
+<div class="ld">天赦日 お金のブロック解除鑑定 19,900円→<b>9,980円</b>（税込）</div>
+<div class="ld">特別料金でのご案内は12月17日（木）まで</div>
+<div class="stock">
+<div class="sl"><span>天赦日にお受けできる鑑定枠</span><b>残りわずか</b></div>
+<div class="bar"><i style="--fill:93%"></i></div>
+<div class="sn">一人ひとり丁寧に向き合っているから、枠が埋まったら順番待ちになります</div>
+</div>
+</div>
+</div>
 <div class="wrap">
 <section>
-<h2><span class="nw">お金の流れを、</span><span class="nw">ほどいていく</span></h2><p class="seasonal-context">天赦日と甲子の日が重なる師走。2027年に向けたお金の流れを見つめる、始まりの節目。</p><div class="dec-n1"><p>給料が入っても、支払いが終わるとほとんど残らない。残高を見るたびに、自分のやりくりが悪いのかと責めてしまう。</p><p>私のお金の流れは、どこで止まっているのか。どこからほどけば、流れは動き出すのか。</p><p>「自分のやりくりが悪い」が重なると、守りたかった自分の安心まで後回しになることがあります。師走の節目に、今の流れと、ほどく順番を整理しましょう。</p><p>天赦日は、抱えてきたものをほどく節目として。止まっている流れと、動き出す入口を、あなたの言葉から整理します。</p></div>
-<p>無料鑑定では、今のお金の悩みと、<strong>先に整える一歩</strong>をお伝えしました。<br/>今回は師走の節目に、守りたいもの・見直したい受け取り方・今の道と別の道を、現在のご相談から整理します。前回の鑑定結果との比較を前提にせず、今回の言葉から読み解きます。</p>
+<h2><span class="nw">お金の流れを、</span><span class="nw">ほどいていく</span></h2><p class="seasonal-context">天赦日と甲子の日が重なる師走。2027年に向けたお金の流れを見つめる、始まりの節目。</p><div class="dec-n1"><p>給料が入っても、支払いが終わるとほとんど残らない。残高を見るたびに、自分のやりくりが悪いのかと責めてしまう。</p><p>お金の流れは、どこで止まっているのか。どこからほどけば、流れは動き出すのか。</p><p>「自分のやりくりが悪い」という思いが重なると、守りたかった自分の安心まで後回しになることがあります。師走の節目に、今の流れと、ほどく順番を整理しましょう。</p><p>天赦日を、抱えてきたものをほどく節目にして、止まっている流れと、動き出す入口を、あなたの言葉から整理します。</p></div>
+<p>無料鑑定では、今のお金の悩みと、<strong>先に整える一歩</strong>をお伝えしました。<br/>今回は師走の節目に、ほどく順番・動き出す時期と合図・受け取る入口を、今回のご回答から整理します。前回の鑑定結果との比較を前提にせず、今回の言葉から読み解きます。</p>
 <p>この鑑定では、お金への思い込みや繰り返す行動を<strong>「ブロック」</strong>として見つめます。<br/>表に見える悩みだけでなく、その背景を順に整理する、という見方です。<br/>重なり方や整える順番は、一人ひとりの言葉から読み解きます。</p>
 <div aria-label="氷山の図。&lt;br&gt;見えている悩みは水面の上の一部で、奥のブロックは水面の下にある。&lt;br&gt;ほどけるのは下から上の順" class="berg">
 <div class="head">お金のブロックは、氷山と同じ</div>
@@ -230,7 +261,7 @@
 <li data-n="2">仕事や人との縁の中で、<b>どんな機会</b>に目を向けるのか</li>
 <li data-n="3">動くか待つかを考えるとき、<b>何を確かめる</b>のか</li>
 </ul>
-<p>知っていると、タイミングが来た時に受け取る道を考える手がかりになります。<br/>今の悩みを言葉にしたことが、ここからの流れを見つめるきっかけになります。</p>
+<p>これを知っておくと、タイミングが来た時に受け取る道を考える手がかりになります。<br/>今の悩みを言葉にしたことが、ここからの流れを見つめるきっかけになります。</p>
 </section>
 <section>
 <h2>本鑑定で届くもの</h2>
@@ -240,7 +271,7 @@
 <div class="item"><svg viewbox="0 0 44 44"><circle cx="22" cy="22" fill="none" r="15" stroke="#9c7a1c" stroke-width="2"></circle><line stroke="#9c7a1c" stroke-linecap="round" stroke-width="2.5" x1="22" x2="22" y1="22" y2="12"></line><line stroke="#9c7a1c" stroke-linecap="round" stroke-width="2.5" x1="22" x2="29" y1="22" y2="26"></line><circle cx="36" cy="9" fill="#4fb8c2" r="4"></circle></svg><div><h3>切り替わる時期と、その前の合図</h3><p>お金の流れが動き出す時期の目安と、その前に日常で確かめられる合図</p></div></div>
 <div class="item"><svg viewbox="0 0 44 44"><path d="M6 30 Q22 14 38 30" fill="none" stroke="#1f6f7a" stroke-linecap="round" stroke-width="2.5"></path><path d="M6 36 Q22 20 38 36" fill="none" stroke="#d2a843" stroke-linecap="round" stroke-width="2.5"></path><circle cx="22" cy="12" fill="#9c7a1c" r="5"></circle></svg><div><h3>お金が入ってくる、入口</h3><p>仕事や人との縁など、あなたが受け取りやすいお金の入口</p></div></div>
 </div>
-<p class="note">鑑定書は<span class="nw">LINE</span>で<span class="nw">1通</span>、およそ<span class="nw">4,000〜4,500字</span>。<br/>最後に、<b>合図が来た時に口にする、あなたに合った一言</b>を添えます。</p>
+<p class="note">鑑定書は<span class="nw">LINE</span>で<span class="nw">1通</span>、およそ<span class="nw">4,000〜4,500字</span>。<br/>最後に、<b>合図が来た時に心の中で唱える、あなたに合った一言</b>を添えます。</p>
 <div aria-label="鑑定書がLINEで届くイメージ" class="line">
 <div class="top"><span class="back"></span><span class="name">とー</span><span class="ic ph"></span><span class="ic"></span></div>
 <div class="body">
@@ -271,7 +302,7 @@
 </section>
 <section>
 <h2><span class="nw">受けた人の声と、</span><span class="nw">心配な人へ</span></h2>
-<p class="note" style="margin-bottom:18px">実際に本鑑定を受けた方の声です。</p> <div class="voice">
+<p class="note" style="margin-bottom:18px">実際に、これまでの本鑑定を受けた方の声です。</p> <div class="voice">
 <blockquote>何をすればいいかが、自然と一つになった。</blockquote>
 <blockquote>思いがけないところから、お金が向こうから入ってくることがあるのだと、体感できた。</blockquote>
 <blockquote>一回読んだだけで、翌日にはお金のブロックが外れ始めた感覚があった。</blockquote>
@@ -287,12 +318,12 @@
 <h2>なぜ僕が、<span class="nw">言葉から</span><span class="nw">波動が読めるのか</span></h2>
 <p>僕はもともと、物理学を学んでいた人間です。<br/>波動の話を知った時、自分を実験台にしました。<br/>毎朝、鏡の前で言葉を声に出して、その時の気分を<strong><span class="nw">90日間</span></strong>ノートに記録したんです。</p>
 <p>分かったのは、本心から出た言葉と、口だけの言葉は、はっきり違うということ。<br/>言葉には、その時の気分がそのまま出る。<br/>僕は、言葉に表れた気持ちやお金への向き合い方を、<strong>鑑定上の「波動」として受け取っています</strong>。</p>
-<p>その目で、<span class="nw">1万人</span>近くのお客さんの言葉を読んできました。<br/>ヒアリングに書かれた言葉を手がかりに、その人の背景と整える順番を読み解いていきます。収入や支払いの問題を、すべて気分や思い込みのせいにはしません。</p>
+<p>その目で、<span class="nw">1万人</span>近くのお客さんの言葉を読んできました。<br/>五つの質問への答えを手がかりに、その人の背景と整える順番を読み解いていきます。収入や支払いの問題を、すべて気分や思い込みのせいにはしません。</p>
 </section>
 <section id="price">
 <h2>12月の本鑑定と、お届けする内容</h2>
 <p>今回の本鑑定は、<strong>9,980円（税込）</strong>です。あなたの言葉から、お金のブロックをほどく順番・時期と合図・受け取る入口を、一通の鑑定書にまとめます。</p>
-<p>私のお金の流れは、どこで止まっているのか。僕からの五つの質問に、一言ずつで大丈夫です。今の本音を聞かせてください。</p>
+<p>あなたのお金の流れは、どこで止まっているのか。僕からの五つの質問に、一言ずつで大丈夫です。今の本音を聞かせてください。</p>
 <div class="offer"><div class="lab">2026年12月の本格特別鑑定　特別料金</div><div class="price"><span class="was">通常価格 19,900円</span><span><span class="now">9,980</span><span class="yen">円</span> <span class="unit">（税込）</span></span><span class="save">9,920円お得</span></div><a class="btn js-buy" href="https://pmsdqb4c2p0emj0yagvc.stores.jp/items/6b08c3e4e3d76f191ad0d44c" rel="noopener" target="_blank">本鑑定を申し込む<small>特別料金 9,980円（税込）・お申し込みは1分</small></a><p class="after-btn">購入後、決済時のお名前・購入商品名・購入完了画面を、僕の公式LINEに送ってください。</p></div>
 <h2 style="margin-top:40px">お申し込みから、届くまで</h2>
 <ol class="steps">
@@ -313,8 +344,13 @@
 </section>
 <section>
 <h2>最後に、一つだけ</h2>
-<p>本鑑定は、あなた一人の言葉から、あなたの分だけを書きます。<br/>生活費や必要な支払いを削ってまで申し込まないでください。無料鑑定でお伝えしたことは、何度でも読み返してください。そこに書いたことは、本当のことです。</p>
-<p>何を増やすかを考える前に、何を抱え続けなくていいのか。お金の流れを止めているものをほどくことが、最初の一歩です。師走の節目に、今のあなたに合う順番で整理していきます。</p>
+<p>本鑑定は、あなた一人の言葉から、あなたの分だけを書きます。<br/>無料鑑定でお伝えしたことは、何度でも読み返してください。そこに書いたことは、本当のことです。</p>
+<div class="invite">
+<h3>2027年こそ、本気で人生を変えたい方へ</h3>
+<p>もう、2026年のままでいいのですか？<br/>2027年こそ人生を変えたい方は、来てください。僕が、あなたの言葉から、お金の流れをほどく順番を整理します。</p>
+<a class="btn js-buy" href="https://pmsdqb4c2p0emj0yagvc.stores.jp/items/6b08c3e4e3d76f191ad0d44c" rel="noopener" target="_blank">本鑑定を申し込む<small>特別料金 9,980円（税込）・お申し込みは1分</small></a>
+</div>
+<p>何を増やすかを考える前に、何を抱え続けなくていいのかを見つめる。お金の流れを止めているものをほどくことが、最初の一歩です。師走の節目に、今のあなたに合う順番で整理していきます。</p>
 <div class="offer"><div class="lab">2026年12月の本格特別鑑定　特別料金</div><div class="price"><span class="was">通常価格 19,900円</span><span><span class="now">9,980</span><span class="yen">円</span> <span class="unit">（税込）</span></span><span class="save">9,920円お得</span></div><a class="btn js-buy" href="https://pmsdqb4c2p0emj0yagvc.stores.jp/items/6b08c3e4e3d76f191ad0d44c" rel="noopener" target="_blank">本鑑定を申し込む<small>特別料金 9,980円（税込）・お申し込みは1分</small></a><p class="after-btn">購入後、決済時のお名前・購入商品名・購入完了画面を、僕の公式LINEに送ってください。</p></div>
 <p class="sign">引き寄せ科学者 とー</p>
 </section>
